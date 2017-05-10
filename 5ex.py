@@ -1,23 +1,28 @@
-my_name = 'Zed A. Shaw'
+name = 'Zed A. Shaw'
 
-my_age = 35 # not a lie
+age = 35 # not a lie
 
-my_height = 74 # inches
+height = 74 # inches
 
-my_weight = 180 # pounds
+weight = 180 # pounds
 
-my_eyes = 'blue'
+eyes = 'blue'
 
-my_teeth = 'white'
+teeth = 'white'
 
-my_hair = 'brown'
+hair = 'brown'
 
-print "Let's talk about %s." % my_name
-print "He is %d inches tall." % my_height
-print "He is %d pounds heavy." % my_weight
+print "Let's talk about %s." % name
+print "He is %d inches tall." % height
+print "He is %d pounds heavy." % weight
 print "Actually that's not too heavy."
-print "He has got %s eyes and %s hair." % (my_eyes, my_hair)
-print "His teeths are usually %s depending on the coffee" % my_teeth
+print "He has got %s eyes and %s hair." % (eyes, hair)
+print "His teeths are usually %s depending on the coffee" % teeth
 
 #This line is tricky, try to get it exactly right
-print "If I add %d, %d, and %d I get %d" % (my_age, my_height, my_weight, my_age + my_height + my_weight)
+print "If I add %d, %d, and %d I get %d" % (age, height, weight, age + height + weight)
+
+weight_kg = weight / 2.20462
+height_cm = height / 0.393701
+
+print "%s is %d kilograms heavy and %d centimeters tall" % (name, weight_kg, height_cm)
