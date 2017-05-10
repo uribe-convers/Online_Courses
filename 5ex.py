@@ -26,3 +26,12 @@ weight_kg = weight / 2.20462
 height_cm = height / 0.393701
 
 print "%s is %d kilograms heavy and %d centimeters tall" % (name, weight_kg, height_cm)
+
+
+#All the possible Python format characteres are:
+# Format Symbol	Conversion
+# %c    character
+# %s    string conversion via str() prior to formatting
+# %i    signed decimal integer
+# %d    signed decimal integer
+# %r    any character: print no matter what
