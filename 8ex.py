@@ -15,4 +15,13 @@ print formatter % ("one", "two", "three", "four")
 #are boolean values. Again, the %r works for anything.
 print formatter % (True, False, False, True)
 
+#same as above but this time the information passed to the formatted variable
+#are variables
 print formatter % (formatter, formatter, formatter, formatter)
+
+print formatter % (
+    "I had this string.",
+    "That you could type up right.",
+    "But it didn't sing.",
+    "So I said goodnight."
+)
