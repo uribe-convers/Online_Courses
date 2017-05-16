@@ -60,5 +60,30 @@ result = add(1, 3)
 
 raw_input("What is your name? ")
 
-
+# Or store it in a variable
 name = raw_input("What is your name? ")
+
+location = raw_input("Where do you live? ")
+
+print name, "lives in", location
+
+# Python3
+# print (name, "lives in", location)
+
+# All values returned by raw_input are strings
+
+coffee = raw_input("How many cups of coffee today? ")
+# The answer will be a string and **not** an int
+
+# Triple quotes allow for strings to span multiple lines
+print('''Hola
+como
+estas?''')
+
+s = ('''Hola
+como
+estas''')
+s
+
+# The code above stores the string in variable s and it returns it with the
+# new lines `\n` symbol instead that actual new lines.
