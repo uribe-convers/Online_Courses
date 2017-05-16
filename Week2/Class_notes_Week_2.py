@@ -80,10 +80,38 @@ print('''Hola
 como
 estas?''')
 
+# The code below stores the string in variable s and it returns it with the
+# new lines `\n` symbol instead that actual new lines.
 s = ('''Hola
 como
 estas''')
 s
 
-# The code above stores the string in variable s and it returns it with the
-# new lines `\n` symbol instead that actual new lines.
+# Adding documentation for your own functions in a Docstring
+
+def area(base, height):
+    '''(number, number) -> number
+    Return the area of a triangle with dimensions base and height.'''
+    return base * height / 2
+
+
+# Design Recipe for functions
+# Write a function that convertes from fahrenheit to celsius
+# The Type Contract describes the type of parameters and return value.
+# the desciption should mention the return value and the parameters by name
+# The 6 parts of a function are:
+# Header: def convert_to_celsius(fahrenheit):
+# Type Contract: (number) -> number
+# Description
+# Examples
+# Body
+# Test your own examples and get the result you expect
+
+def convert_to_celsius(fahrenheit):
+    '''(number) -> float
+    This will convert fahrenheit degrees and return the equivalent number of celsius degrees
+    >>> convert_to_celsius(32)
+    0
+    >>> convert_to_celsius(212)
+    100'''
+    return (fahrenheit - 32) * 5 / 9.0
