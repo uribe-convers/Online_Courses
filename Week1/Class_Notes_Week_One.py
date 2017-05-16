@@ -1,7 +1,7 @@
 # Built-in functions
 
 # What's the largest number?
-max(arguments)
+# max(arguments)
 
 max(68.6, 545, 454.5)
 
@@ -26,3 +26,7 @@ result = f(3)
 
 # Calling the function
 f(5)
+
+# Functions can have multiple parematers
+def triangle_area(base, height):
+    return base * height / 2
