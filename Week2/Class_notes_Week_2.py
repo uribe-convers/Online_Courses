@@ -107,11 +107,91 @@ def area(base, height):
 # Body
 # Test your own examples and get the result you expect
 
+# You should write a function in this order:
+# examples
+# Type Contract
+# Header
+# Description
+# Body
+# Test
+
 def convert_to_celsius(fahrenheit):
     '''(number) -> float
-    This will convert fahrenheit degrees and return the equivalent number of celsius degrees
+    Return the number of celsius degrees from the equivalent fahrenheit degrees
     >>> convert_to_celsius(32)
     0
     >>> convert_to_celsius(212)
     100'''
     return (fahrenheit - 32) * 5 / 9.0
+
+
+# Reusing functions and calling a function from a function
+
+# If writting a function to return the smalles number of two temperatures, one
+# in Celsius one in Fahrenheit, reuse the function to convert to Celsius instead
+# of re writting it
+
+def min_temp(temp_Celsius, temp_fahreheit):
+    '''(number, number) -> (float)
+    Return the colder of two temperature in Celsius degrees. The user inputs one
+    in Celsius (temp_Celsius) and one in Fahrenheit (temp_fahreheit).
+    >>>min_temp(32, 40)
+    4.444444444444445
+    >>>min_temp(-23, -15)
+    -26.11111111111111
+    '''
+    convert_temp_Celsius = convert_to_celsius(temp_fahreheit)
+    return min(temp_Celsius, convert_temp_Celsius)
+
+# You can not only call functions from other function definition like I did
+# above, you can also call functions as parameters for other functions.
+# For example, using the built-in function max to find the largest
+# area of two triangles using the function triangle area from above:
+
+max(area(4.8, 5), area(56.3, 3))
+
+# Quiz:
+
+def announce_location(country):
+    print(country)
+    return(country)
+
+instructor_location = announce_location('Canada')
+print(instructor_location)
+
+x = None
+print(x)
+
+
+#Two function definitions are saved in the same file:
+
+#A function 𝚌𝚘𝚞𝚗𝚝_𝚟𝚘𝚠𝚎𝚕𝚜 has one parameter, a word, and returns the number of vowels in that word.
+#A function 𝚌𝚘𝚞𝚗𝚝_𝚌𝚘𝚗𝚜𝚘𝚗𝚊𝚗𝚝𝚜 has one parameter, a word, and returns the number of consonants in that word.
+#To determine the number of letters in a word, write a one-line body for the following function that calls both 𝚌𝚘𝚞𝚗𝚝_𝚟𝚘𝚠𝚎𝚕𝚜 and 𝚌𝚘𝚞𝚗𝚝_𝚌𝚘𝚗𝚜𝚘𝚗𝚊𝚗𝚝𝚜:
+
+def count_letters(word):
+    """ (str) -> int
+
+    Return the number of letters in word.
+    >>> count_letters('hello')
+    5
+    >>> count_letters('bonjour')
+    7
+    """
+    return(𝚌𝚘𝚞𝚗𝚝_𝚟𝚘𝚠𝚎𝚕𝚜(word) + 𝚌𝚘𝚞𝚗𝚝_𝚌𝚘𝚗𝚜𝚘𝚗𝚊𝚗𝚝𝚜(word))
+    # Write the one-line function body that belongs here.
+
+#Two function definitions are saved in the same file:
+
+#A function 𝚐𝚎𝚝_𝚌𝚊𝚙𝚒𝚝𝚊𝚕 has one string parameter that represents a country and returns its capital.
+#A function 𝚕𝚘𝚗𝚐𝚎𝚛 has two string parameters and returns the longer of the two strings.
+#Variables 𝚌𝚘𝚞𝚗𝚝𝚛𝚢𝟷 and 𝚌𝚘𝚞𝚗𝚝𝚛𝚢𝟸 refer to 𝚜𝚝𝚛 values. Write a one-line expression that produces the longer of the capitals of 𝚌𝚘𝚞𝚗𝚝𝚛𝚢𝟷 and 𝚌𝚘𝚞𝚗𝚝𝚛𝚢𝟸. Your expression should involve calls on both 𝚐𝚎𝚝_𝚌𝚊𝚙𝚒𝚝𝚊𝚕 and 𝚕𝚘𝚗𝚐𝚎𝚛.
+
+𝚐𝚎𝚝_𝚌𝚊𝚙𝚒𝚝𝚊𝚕(country1)
+print(longer(𝚐𝚎𝚝_𝚌𝚊𝚙𝚒𝚝𝚊𝚕(country1), 𝚐𝚎𝚝_𝚌𝚊𝚙𝚒𝚝𝚊𝚕(country2)))
+
+# What is the value of 𝚊𝚟𝚎𝚛𝚊𝚐𝚎 after the following code is executed?
+grade1 = 80
+grade2 = 90
+average = (grade1 + grade2) / 2
+grade1 = 100
