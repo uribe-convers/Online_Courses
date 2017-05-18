@@ -3,7 +3,7 @@ def seconds_difference(time_1, time_2):
 
     Return the number of seconds later that a time in seconds
     time_2 is than a time in seconds time_1.
-        
+
     >>> seconds_difference(1800.0, 3600.0)
     1800.0
     >>> seconds_difference(3600.0, 1800.0)
@@ -13,7 +13,7 @@ def seconds_difference(time_1, time_2):
     >>> seconds_difference(1800.0, 1800.0)
     0.0
     """
-    
+    return time_2 - time_1
 
 
 def hours_difference(time_1, time_2):
@@ -21,7 +21,7 @@ def hours_difference(time_1, time_2):
 
     Return the number of hours later that a time in seconds
     time_2 is than a time in seconds time_1.
-        
+
     >>> hours_difference(1800.0, 3600.0)
     0.5
     >>> hours_difference(3600.0, 1800.0)
@@ -31,7 +31,7 @@ def hours_difference(time_1, time_2):
     >>> hours_difference(1800.0, 1800.0)
     0.0
     """
-
+    return seconds_difference(time_1, time_2) / 3600
 
 
 def to_float_hours(hours, minutes, seconds):
@@ -49,7 +49,7 @@ def to_float_hours(hours, minutes, seconds):
     >>> to_float_hours(1, 0, 36)
     1.01
     """
-
+    return hours + (minutes / 60) + (seconds / 3600)
 
 
 def to_24_hour_clock(hours):
@@ -71,24 +71,39 @@ def to_24_hour_clock(hours):
     >>> to_24_hour_clock(28.5)
     4.5
     """
-
     return hours % 24
 
 
 
 ### Write your get_hours function definition here:
+def get_hours(seconds):
+    '''(number) -> (number)
+    Returns the number of hours past midnight as seen in a clock given in a number of second
 
-
+    >>> get_hours(3800)
+    1
+    '''
+    return seconds // 3600
 
 
 ### Write your get_minutes function definition here:
-
-
+def get_minutes(seconds):
+    '''(number) -> number
+    Return number of minutes past midnight as seen in a clock given in number of seconds
+    >>> get_minutes(3800)
+    3
+    '''
+    return (seconds % 3600) // 60
 
 
 ### Write your get_seconds function definition here:
-
-
+def get_seconds(seconds):
+    '''(number) -> number
+    Returns te number of seconds past midnight as seen in a clock given a number of seconds
+    >>> get_seconds(3800)
+    20
+    '''
+    return seconds % 60
 
 
 def time_to_utc(utc_offset, time):
@@ -110,6 +125,7 @@ def time_to_utc(utc_offset, time):
     >>> time_to_utc(-1, 23.0)
     0.0
     """
+    return utc_offset
 
 
 
@@ -135,6 +151,3 @@ def time_from_utc(utc_offset, time):
     >>> time_from_utc(+1, 23.0)
     0.0
     """
-
-
-
