@@ -125,7 +125,7 @@ def time_to_utc(utc_offset, time):
     >>> time_to_utc(-1, 23.0)
     0.0
     """
-    return utc_offset
+    return time + utc_offset
 
 
 
