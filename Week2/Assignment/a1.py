@@ -150,3 +150,4 @@ def time_from_utc(utc_offset, time):
     >>> time_from_utc(+1, 23.0)
     0.0
     """
+    return (abs)((time + utc_offset)%24)
