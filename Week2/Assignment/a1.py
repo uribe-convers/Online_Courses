@@ -125,8 +125,7 @@ def time_to_utc(utc_offset, time):
     >>> time_to_utc(-1, 23.0)
     0.0
     """
-    return time + utc_offset
-
+    return abs((time - utc_offset)%24)
 
 
 def time_from_utc(utc_offset, time):
