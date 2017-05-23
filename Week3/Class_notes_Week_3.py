@@ -120,3 +120,26 @@ help(triangle.semiperimeter)
 
 # IMPORTANT the module that's being imported must be in the same directory of the
 # module that's importing it.
+
+
+# If Statements
+
+# You can create preconditions, which allow only values to be in a certain range
+def report_status(scheduled_time, estimated_time):
+    '''(number, number) -> str
+
+    Return flight status (ON Time, Early, Delayed) for a flight that was
+    scheduled to arrive at scheduled_time, but now is estimated to arrive
+    at estimated_time.
+
+    Pre-condition: 0.0 <= scheduled_time < 24 and
+    0.0 <= estimated_time < 24
+
+    >>>report_status(14.3, 14.3)
+    'On Time'
+    >>>report_status(12.5, 11.5)
+    'Early'
+    >>>report_status(9.0, 9.5)
+    'Delayed'
+    '''
+    return
