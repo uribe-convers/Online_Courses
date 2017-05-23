@@ -67,3 +67,30 @@ not (grade >= 50 or grade2 >= 50)
 
 # It is recommened to use parenthesis when using multiple logical operators
 # It also makes it easier to read
+
+
+
+# Converting between different types (i.e., int, float, str, bool)
+
+# Create a string
+str(3)
+three = str(3)
+three * 77
+
+# From a str to int
+(three * 5)
+# From str to int to str
+str(int(three * 5))
+
+str(5.67)
+
+int('567')
+
+float('5.67')
+
+float('567')
+
+int("I have 7 apples")
+# This returns an error becuase this conversion is not possible
+# same with the code below where a float type is appropriate
+int('5.67')
