@@ -94,3 +94,29 @@ int("I have 7 apples")
 # This returns an error becuase this conversion is not possible
 # same with the code below where a float type is appropriate
 int('5.67')
+# But this will work since it's from a float to an int:
+int(5.67)
+
+
+# Modules and built-in functions
+
+# There are thousands of modules that have thousands of functions. To use them,
+# you must import the appropriate module.
+
+# Importing
+import math
+
+# Seeing what it has available
+dir(math)
+
+# Getting help
+help(math.sqrt)
+
+# To import your own modules, you only ned to call them without the `.py` extension.
+
+import triangle
+
+help(triangle.semiperimeter)
+
+# IMPORTANT the module that's being imported must be in the same directory of the
+# module that's importing it.
