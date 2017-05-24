@@ -125,6 +125,25 @@ help(triangle.semiperimeter)
 # If Statements
 
 # You can create preconditions, which allow only values to be in a certain range
+
+# If a function ends without a `return` statement being execute, that function
+# returns `None`. Value `None` hase type `NoneType`
+
+# Structure of an `if` statement:
+#   if expression:
+#       statements
+#   elif expression:    #else if some other condition
+#       statements
+#   else:    #if none of the preceding conditions are true, do this...
+#       statements
+
+# You can have 0 or more `elif` clauses associated with the `if`
+# There can be 0 or 1 `else` clauses and the `else` must be the last clause of
+# the `if` statement.
+
+# The clauses are evaluated in order and the body of the first clause that evaluates
+# to `True` is executed and the `if` statement is terminated without checking any more conditions.
+
 def report_status(scheduled_time, estimated_time):
     '''(number, number) -> str
 
@@ -132,7 +151,8 @@ def report_status(scheduled_time, estimated_time):
     scheduled to arrive at scheduled_time, but now is estimated to arrive
     at estimated_time.
 
-    Pre-condition: 0.0 <= scheduled_time < 24 and
+    Pre-conditions:
+    0.0 <= scheduled_time < 24 and
     0.0 <= estimated_time < 24
 
     >>>report_status(14.3, 14.3)
@@ -142,4 +162,9 @@ def report_status(scheduled_time, estimated_time):
     >>>report_status(9.0, 9.5)
     'Delayed'
     '''
-    return
+    if scheduled_time == estimated_time:
+        return 'On Time'
+    elif scheduled_time > estimated_time:
+        return 'Early'
+    else:
+        return 'Delayed'
