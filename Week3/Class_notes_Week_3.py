@@ -168,3 +168,54 @@ def report_status(scheduled_time, estimated_time):
         return 'Early'
     else:
         return 'Delayed'
+
+
+# No `if` required
+
+# This is a style that uses `if` statements and boolean values together.
+
+def is_even(num):
+    ''' (int) -> bool
+
+    Returns whether num is even or not.
+
+    >>> is_even(4)
+    True
+    >>> is_even(77)
+    False
+    '''
+    if num % 2 == 0: #the remainder is 0 for an even number divided by 2
+        return True
+    else:
+        return False
+
+# The function above works but it's three lines too long!
+
+# Because the expression `num % 2 == 0` is already returning a boolean value,
+# we can skipi the `if` statement and use the boolean result stright away like this:
+
+def is_even_boolean(num):
+    ''' (int) -> bool
+
+    Returns whether num is even or not.
+
+    >>> is_even_boolean(4)
+    True
+    >>> is_even_boolean(77)
+    False
+    '''
+    return num % 2 == 0
+
+# This way of using Boolean expression simplifies code
+
+# Examples:
+
+def is_comfortable(temp):
+    '''(number) -> bool
+
+    Return whether temp is 22.5.'''
+    return temp == 22.5
+
+print(is_comfortable(20))
+
+print(is_comfortable(22.5))
