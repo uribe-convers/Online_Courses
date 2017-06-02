@@ -219,3 +219,59 @@ def is_comfortable(temp):
 print(is_comfortable(20))
 
 print(is_comfortable(22.5))
+
+# The structure of and `if` statement
+
+## Quiz
+
+age1 = input("How old are you? ")
+age2 = input("How old is your best friend? ")
+
+
+𝚙𝚛𝚒𝚗𝚝(𝚒𝚗𝚝(𝚊𝚐𝚎𝟷) + 𝚒𝚗𝚝(𝚊𝚐𝚎𝟸))
+
+x = int(age1)
+y = int(age2)
+print(str(x+y))
+
+print(str(int((age1+age2))))
+
+
+print(int(age1) + int(age2))
+
+
+cents = 34
+not not cents > 33
+cents < 10 or cents > 3
+not cents *2 > 34
+
+dollars = 18
+cents = 53
+
+dollars == 10 or not cents != 53
+
+not dollars == 18 or not cents == 53
+not dollars < 10 and cents > 15
+
+3 <= x < 10
+not (3 <= x and x < 10)
+
+3 <= x or x < 10
+
+
+num = 20
+def huevo(eggs):
+    if eggs % 12 == 0:
+        return False
+    else:
+        return True
+
+eggs % 12 == 0
+
+
+
+import math
+dir(math)
+help(math.factorial)
+math.factorial(8)
+factorial(8)
