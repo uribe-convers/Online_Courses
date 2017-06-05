@@ -201,7 +201,7 @@ for char in s:
 
 We are going to use a for loop to count the number of vowels in a string.
 
-Writ a function that does this:
+Write a function that does this:
 
 ```python
 
@@ -220,3 +220,36 @@ def count_vowels(s):
     return (number_vowels)  # Returns the total number of vowels
 
 ```
+
+Now, write a function that collects all the vowels in a string:
+
+
+```python
+def collect_vowels(s):
+    """ (str) -> str
+    Return all vowels present in s. The letter y is not considered a vowel.
+    >>>collect_vowels("Happy Anniversary!")
+    'aAiea'
+    >>>collect_vowels("xyz")
+    ''
+    """
+    vowels = "" # creates an accumulator that is an empty string
+    for i in s:
+        if i in "aeiouAEIOU":
+            vowels = vowels + i    # Adds the current vowel to the string
+    return (vowels)
+
+```
+
+Both of the functions above use accumulators to keep track of how many instances there are of vowels.
+In the first function the accumulator contains integers, while the accumulator in the second function
+contains characters. Accumulators can also be of type `bool`.
+
+
+## Quiz
+
+s = 'pineapple'
+s[-5:]
+
+vehicle = 'car'
+vehicle[-1]+vehicle[1]+vehicle[:1]+"e"+vehicle
