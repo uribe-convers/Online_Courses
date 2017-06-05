@@ -81,7 +81,7 @@ s[0]
 s[1]
 s[5]    # the space between 'learn' and 'to'
 ```
-The string "Learn to Program" has the following indices, with the additional index 16, which is the end of the string and equal to the `len()` of the string.
+The string "Learn to Program" has the following indices, with an additional index "16", which is the end of the string and equal to the `len()` of the string.
 
 |0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -95,7 +95,7 @@ s[-2]
 ```
 
 You can also slice the string by providing a starting and ending indices. This will create a substring from the start index
-up to—but not including—the end index.
+up to, **but not including**, the end index.
 
 ```python
 s[0:2]  #doesn't include the second index
@@ -116,4 +116,36 @@ Or both indices can be omitted and the whole string is returned.
 ```python
 s[:9]
 s[:]
+```
+
+All this operations *do not* change the string. In fact, a string **cannot** be changed, they are immutable.
+
+These will all result in errors:
+
+```python
+s[6] = "d"
+s[5:7] = "run"
+```
+However, you can manipulate the string output and assign it to a new variable.
+
+```python
+s = s[:5] + "ed" + s[5:]
+print(s)
+```
+
+# String Methods: functions inside of objects
+
+Objects can have modules inside of them, they are called *methods*
+
+```python
+rabbit = "Hola Como estas?"
+
+rabbit.lower()
+```
+
+To know which methods are available to an object, you can use `dir(object)`. Because this object is a `str`, we can also use `dir(str)`
+
+```python
+dir(rabbit)
+dir(str)
 ```
