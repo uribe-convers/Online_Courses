@@ -138,7 +138,7 @@ print(s)
 Objects can have modules inside of them, they are called *methods*
 
 ```python
-rabbit = "Hola Como estas?"
+rabbit = "I'm late! I'm late! For an important date!"
 
 rabbit.lower()
 ```
@@ -148,4 +148,44 @@ To know which methods are available to an object, you can use `dir(object)`. Bec
 ```python
 dir(rabbit)
 dir(str)
+```
+
+You can also ask for help on any of these methods. The square brackets in the help indicate optional parameters.
+
+```python
+help(rabbit.lower)
+help(rabbit.count)
+
+rabbit.count("ate")
+```
+
+We can capitalize a string, find the index where a substring is found within a string, and even give it
+a start index to find that word. If the substring doesn't appear in the string, the result is **-1**.
+These methods are case sensitive. To start finding from the end (right) of the string, we can use `rfind`.
+
+```python
+"computer".capitalize()
+rabbit.find("late") #where does 'late' appears first
+rabbit.find("late", 7)  #where does 'late' appears first, after index 7
+rabbit.find("casa") #this substring is not present in rabbit and we get -1 as a result.
+rabbit.rfind("late") #where does 'late' appears first from the right
+```
+
+If there is white space at the left or right of a string, you can remove it with `lstrip()` or `rstrip()`, respectively.
+If we want to remove all white space, we use `strip`. Again, this expresions don't modify the string but rather produce new strings.
+
+```python
+s = "        A string with white space on the left and right.       "
+s.lstrip()  #removes white space on the left
+s.rstrip()  #removes white space on the right
+s.strip()  #removes white space on both the left and right
+```
+
+```python
+S = "Off with their heads!"
+S.find("heads")
+
+white_queen = "Jam tomorrow and jam yesterday - but never jam today."
+white_queen.count("jam")
+white_queen.lower().count("jam")    #Counts how many times "jam" is found ignoring letter case.
 ```
