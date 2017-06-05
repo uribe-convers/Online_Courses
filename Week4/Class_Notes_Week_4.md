@@ -189,3 +189,34 @@ white_queen = "Jam tomorrow and jam yesterday - but never jam today."
 white_queen.count("jam")
 white_queen.lower().count("jam")    #Counts how many times "jam" is found ignoring letter case.
 ```
+
+# For Loops Over Strings
+
+```python
+s = "Hi there!"
+
+for char in s:
+    print(char)
+```
+
+We are going to use a for loop to count the number of vowels in a string.
+
+Writ a function that does this:
+
+```python
+
+def count_vowels(s):
+    """ (str) -> int
+    Return the number of vowels in s. Do not treat the letter y as a vowel.
+    >>>count_vowels("Happy anniversary!")
+    5
+    >>>count_vowels("xzy")
+    0
+    """
+    number_vowels = 0   # Creates a counter, or accumulator, to add number of vowels
+    for i in s: # For each character in the string
+        if i in "aeiouAEIOU":   # if the current character is a vowel
+            number_vowels = number_vowels + 1   # increase the counter by one
+    return (number_vowels)  # Returns the total number of vowels
+
+```
