@@ -141,3 +141,22 @@ return before_vowel
 ```
 
 # Type List
+
+Lists are created with square brackets and comma separated items/values. The
+items in a list can be indexed or sliced just as with a string.
+
+```python
+grades = [80, 90, 70]
+grades[0]
+grades[1]
+grades[2]
+grades[0:2]
+grades[1:2]
+```
+
+One can also use the `in` operator with lists
+
+
+```python
+80 in grades
+```
