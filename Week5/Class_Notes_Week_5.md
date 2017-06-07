@@ -114,4 +114,5 @@ def get_answer(prompt):
         answer = input(prompt)
     return answer
 
+    # >>> get_answer("Are you tired? ")
 ```
