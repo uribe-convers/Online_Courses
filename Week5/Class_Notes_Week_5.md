@@ -2,15 +2,15 @@
 
 # While Loops
 
-Differently from a `for loop`, a `while loop` loops until a certain condition, e.g.,
+Differently from a `for`, a `while` loop loops until a certain condition, e.g.,
 finding a vowel, or having the user input a value.
 
 Remember that an `if` statement relies on a boolean expression, if the boolean is
 `True` the body is executed and if it's `False` the body of the function is skipped.  
-The `while loop` relies on a boolean expression as well, i.e., if it's `True` the
-body of the loop is executed, however, unlike the `if` statement, the `while loop`
+The `while` loop relies on a boolean expression as well, i.e., if it's `True` the
+body of the loop is executed, however, unlike the `if` statement, the `while` loop
 will check the expression again once it has finished. If the condition continues
- to be `True`, the `while loop` is executed a second time. This process repeats
+ to be `True`, the `while` loop is executed a second time. This process repeats
 until the body condition is `False`.
 
 In the example below, a variable of initial value 2 is doubled, stored, and printed.
@@ -25,7 +25,7 @@ while num < 100:
 
 ```
 
-Now an example of a `while loop` to be executed on a `str` until a vowel is found:
+Now an example of a `while` loop to be executed on a `str` until a vowel is found:
 
 ```python
 # This for loop prints the whole string
@@ -53,7 +53,7 @@ while not (s[i] in "aeiouAEIOU"):
 
 We get an error saying that the "string index is out of range." In the above example,
 the accumulator `i` finished with the value 3, but index 3 doesn't exist in the
-string s! To prevent this, we have to specify when to stop the `while loop`
+string s! To prevent this, we have to specify when to stop the `while` loop
 by adding a second part to the boolean condition. It has to check that the index
 is not larger than the length of the string.
 
@@ -154,9 +154,43 @@ grades[0:2]
 grades[1:2]
 ```
 
-One can also use the `in` operator with lists
-
+One can also use the `in` operator with lists, as well as `len`, `min`, `max`, and `sum`
 
 ```python
 80 in grades
+60 in grades
+
+len(grades)
+min(grades)
+max(grades)
+sum(grades)
+```
+
+Lists can also contain `str`, and some of the same operators can be used on them.
+
+```python
+subjects = ["bio", "cs", "math", "history"]
+len(subjects)
+min(subjects)   # Uses order in a dictionary
+max(subjects)   # Uses order in a dictionary
+sum(subjects)   # Produces an error
+```
+
+List can contain data from different types
+
+```python
+street_address = [10, "Main Street"]
+```
+
+## For loops over Lists
+
+Just as with strings, `for` loops can go over a Lists
+
+```python
+for i in grades:
+    print (i)
+
+for item in subjects:
+    print (item)
+
 ```
