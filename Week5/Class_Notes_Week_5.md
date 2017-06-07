@@ -270,4 +270,24 @@ colors.sort()   # Doesn't return anything but it modifies the list
 colors
 colors.reverse() # Doesn't return anything but it modifies the list
 colors
+
+# Adding new items without replacing other items, just shifting them
+colors.insert(-2, "brown")  # Inserts brown in index -2
+colors
+```
+
+To remove an object from a list, we can do it with its index and the method
+`.pop()`. To find out its position in the list, we can use the `.index()` method. However, this method can crash if the object is not in the list.
+We do an `if` statement first to find out if its present, and if it is, remove it.
+
+```python
+colors
+colors.index("yellow")  # Produces an error because yellow is not present
+colors.index("brown")
+
+if "brown" in colors:
+    position = colors.index("brown")
+    colors.pop(position)
+colors
+
 ```
