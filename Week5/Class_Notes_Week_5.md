@@ -117,7 +117,7 @@ def get_answer(prompt):
     # >>> get_answer("Are you tired? ")
 ```
 
-# How to properly comment your
+# How to properly comment your code
 
 Start a line with a pound/hash character (`#`) so that's ignored. Try to write
 informative comments that make a *relationship* among the variables in your code.
@@ -219,8 +219,8 @@ while color != "":
 
 Now let's say that we need to add some more items in the list, we do it with the
 methods "list.extend" or "list.append". `.extend` **expects a list as the only argument**,
-e.g., `list1.extend([newitem1, newitem2])`, whereas `.append` is used directly onto
-the list with an object as the only one argument, e.g., `list1.append(newitem1)`
+e.g., `list.extend([newitem1, newitem2])`, whereas `.append` is used directly onto
+the list with an object as the only one argument, e.g., `list.append(newitem1)`
 
 ```python
 
@@ -289,5 +289,72 @@ if "brown" in colors:
     position = colors.index("brown")
     colors.pop(position)
 colors
+```
 
+# Mutability and Aliasing
+
+An object in a list can be modified directly by changing its memory address.
+
+
+```python
+list1 = [2, 4, 6, 8, 10]
+list1
+list1[2] = 5
+list1
+```
+
+If two variables contain the same memory address it's called aliasing.
+
+```python
+list2 = list1
+```
+
+The interesting thing is that if an object in one list changes, **it will change
+on the other list too.**
+
+```python
+list1
+list1[-1] = 17
+list1
+list2
+```
+
+This not only happens with assignment but can also happen if a function is ran
+on a list and it modifies the data, e.g., a function that doubles a number.
+
+So far, the only mutable type we have learned is `list`, and immutable types are
+`int`, `flot`, `str`, `bool`. Be very careful when writing DocStrings for functions
+that act on mutable types and that modify the data of the object.
+
+
+# Range
+
+The build-in function `range` can be very useful because it gives you sequences
+of numbers that that represent the indices of strings or lists.
+The function `range` goes up to but not included the last number. The "step", or
+difference between any two values in the sequence is 1 by default.
+
+```python
+for num in range(10):   # Doesn't include 10!
+    print (num)
+```
+
+The `help(range)` shows that the function can accept up to three arguments. An
+optional starting value, the required end value, and an optional step.
+
+```python
+s = "computer science"
+len(s)
+
+# To print all indices
+for i in range(len(s)):
+    print(i)
+
+# To print indices starting from index 1
+for i in range(1, len(s)):
+    print(i)
+
+# To only get odd indices
+for i in range(1, len(s), 2):
+    print(i)
 ```
