@@ -194,3 +194,15 @@ for item in subjects:
     print (item)
 
 ```
+
+# List methods
+
+**Reminder:** A methods is a function inside an object.
+To see which methods are available to a list, use `dir(list)`.
+
+We are going to keep track of someone's favorite colors:
+
+```python
+colors = []
+
+```
