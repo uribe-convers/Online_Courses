@@ -203,6 +203,71 @@ To see which methods are available to a list, use `dir(list)`.
 We are going to keep track of someone's favorite colors:
 
 ```python
+# Create an empty list
 colors = []
 
+# Create a variable with some text to be displayed to the user
+prompt = "Enter another of your favorite colors (type return to end): "
+
+# Accumulate the colors typed at the prompt
+color = input(prompt)
+
+while color != "":
+    colors.append(color)
+    color = input(prompt)
+```
+
+Now let's say that we need to add some more items in the list, we do it with the
+methods "list.extend" or "list.append". `.extend` **expects a list as the only argument**,
+e.g., `list1.extend([newitem1, newitem2])`, whereas `.append` is used directly onto
+the list with an object as the only one argument, e.g., `list1.append(newitem1)`
+
+```python
+
+colors.extend("hot pink", "neon green") # Error because there are two arguments
+colors.extend(["hot pink", "neon green"])   #OK because the argument is one list
+
+print (colors)
+
+colors.append("sky blue")
+
+print (colors)
+```
+
+To remove the item at the end of the list (or using indexing to remove from anywhere),
+we can use "list.pop". This method not only removes the last item, it also **returns*** it and you can assign it to a variable. This type of functions that
+both returns information and has an effect on data, are functions to said to have
+side effects. Another way to delete items from a list is to use the "list.remove"
+method. `.remove` works on an **object** not an index and returns an error if that
+objects is not present in the list.
+
+```python
+colors.pop()
+colors
+
+colors.pop(2)
+colors
+
+colors.remove("black")  # Gives error
+colors.remove("blue")
+colors
+```
+
+If you want to evaluate the list before calling a method that might produce an error:
+
+```python
+if "yellow" in colors:
+    colors.remove("yellow")
+
+```
+
+Here are some other methods that can be used in lists:
+
+```python
+colors.extend(["gray", "purple"])
+colors
+colors.sort()   # Doesn't return anything but it modifies the list
+colors
+colors.reverse() # Doesn't return anything but it modifies the list
+colors
 ```
