@@ -116,3 +116,28 @@ def get_answer(prompt):
 
     # >>> get_answer("Are you tired? ")
 ```
+
+# How to properly comment your
+
+Start a line with a pound/hash character (`#`) so that's ignored. Try to write
+informative comments that make a *relationship* among the variables in your code.
+Comments don't need to explain how the code is doing its job, but rather describe
+the purpose of the function and what is does, and describe the relationships between the variables.  
+
+Using one of the `while` loops from above, we can write the following comments:
+
+
+```python
+# before_vowel contains all the characters found in s[0:i]
+before_vowel = ""
+i = 0
+
+# Accumulate the non-vowels at the the beginning of the string
+while i < len(s) and not (s[i] in "aeiouAEIOU"):
+    before_vowel = before_vowel + s[i]
+    i = i + 1
+return before_vowel
+
+```
+
+# Type List
