@@ -1,3 +1,5 @@
+# Week 2
+
 # Types of Strings
 
 Strings can be in single or double-quotes  
