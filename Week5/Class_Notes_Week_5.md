@@ -355,6 +355,190 @@ for i in range(1, len(s)):
     print(i)
 
 # To only get odd indices
+
 for i in range(1, len(s), 2):
     print(i)
+```
+
+
+# Quiz
+
+
+1)
+```python
+len([1, 2, 3]) == len(["a", "b", "c"]) #Esta
+
+[1, 2, 3] in len("mom")
+len("mom") in [1, 2, 3] # esta
+
+l = ["mom", "dad"]
+"a" in ["dad"]
+
+"3" in [1, 2, 3]
+
+int("3") in [len("a"), len("ab"), len("abc")] # esta
+```
+
+2)
+
+```python
+def mystery(s):
+    i = 0
+    result = ''
+    while not s[i].isdigit():
+        result = result + s[i]
+        i = i + 1
+    return result
+
+mystery("abc") # Esta
+mystery("abc123")
+mystery("123")
+mystery("123abc")
+```
+
+3)
+
+```python
+def example(L):
+    """ (list) -> list
+    """
+    i = 0
+    result = []
+    while i < len(L):
+        result.append(L[i])
+        i = i + 3
+    return result
+
+x = example(["abracadabra"])
+
+```
+4)
+
+```python
+def compress_list(L):
+    """ (list of str) -> list of str
+
+    Return a new list with adjacent pairs of string elements       from Lconcatenated together, starting with indices 0 and 1,    2 and 3,and so on.
+
+    Precondition: len(L) >= 2 and len(L) % 2 == 0
+
+    >>> compress_list(['a', 'b', 'c', 'd'])
+    ['ab', 'cd']
+    """
+    compressed_list = []
+    i = 0
+
+    while i < len(L):
+        compressed_list.append(L[i] + L[i + 1])
+        # MISSING CODE HERE
+
+     return compressed_list
+
+```
+
+5)
+
+What is the sum of the **𝚎𝚟𝚎𝚗** (sometimes it changes to **odd**) numbers from 524 through 10508, inclusive? Hint: write a `𝚠𝚑𝚒𝚕𝚎` loop to accumulate the sum and print it. Then copy and paste that sum. For maximum learning, do it with a `𝚏𝚘𝚛` loop as well, using `𝚛𝚊𝚗𝚐𝚎`.
+
+### While loop
+
+```python
+
+### # It runs but gives me a larger result!!!
+i = 524
+result = 0
+while i <= 10508:
+    result = result + i
+    i = i + 2
+
+result
+```
+
+
+### For loop
+```python
+# For loop is correct
+result = 0
+for i in (range(524, 10508, 2)):
+    result = result + i
+
+result
+
+# 27530880
+```
+
+6)
+
+
+```python
+def while_version(L):
+    """ (list of number) -> number
+    """
+    i = 0
+    total = 0
+    while i < len(L) and L[i] % 2 != 0:
+        total = total + L[i]
+        i = i + 1
+    return total
+
+# This for loop does the same
+
+def for_version(L):
+    found_even = False
+    total = 0
+
+    for num in L:
+        if num % 2 != 0 and not found_even:
+            total = total + num
+        else:
+            found_even = True
+
+    return total
+```
+
+10)
+
+```python
+a = [1, 2, 3]
+b = a # THIS IN AN ALIAS!!! NOT AN ASSIGNMENT!!!!
+#Missing
+
+print(a, b)
+#print: [1, 'A', 3] [1, 'A', 3]
+
+b[-2] = "A" #este
+
+b[1] = "AB"
+a[1] = a[1][0] # esto hace index del index!
+```
+
+11)
+
+```python
+a = [1, 2, 3] # NO alias! both variables are independent
+b = [1, 2, 3]
+# MISSING CODE HERE
+print(a, b)
+#print: [1, 'A', 3] [1, 'A', 3]
+
+a[1] = "A"
+```
+
+12)
+
+```python
+def increment_items(L, increment):
+    i = 0
+    while i < len(L):
+        L[i] = L[i] + increment
+        i = i + 1
+
+values = [1, 2, 3]
+print(increment_items(values, 2)) # Doesn't return anything so it's none
+print(values)
+
+# answer
+
+# None
+# [3, 4, 5]
 ```
