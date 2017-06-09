@@ -122,3 +122,111 @@ the path of python at the beginning of your code with `#!/usr/bin/python`, you
 can just type `./ProgramName.py`. Finally, you can call the program from another
 program by imporating it as a module with: `import filename` without the extension.
 The file needs to be in the same directory.
+
+
+## Code Commenting
+
+It's very important to add comments to your code so that you or others can
+figure out what your program does. You can do this in two ways: 1) using the
+hash or pound character (`#`) or 2) with triple quotes, text, triple quotes:
+
+```python
+# Single line comment
+
+"""This is a comment
+that can be a
+few lines long
+"""
+```
+
+## Reading Input and String Conversion
+
+Instead of typing at the prompt, you can ask the user to type it in.
+
+In Python2 we do this with `raw_input` in Python3 is `input`. This input is
+***always*** captured as a string! You can convert it to other types using
+`int()`, `float()`, `str()`, `chr()`, `complex()`. The type `chr` referrers to the
+actual character assigned to each key on the keyboard depending on its number,
+e.g., chr(65) -> A.
+
+```python
+dna = input("Enter a DNA sequence, please: ")
+dna
+
+# Always strings even with numbers!
+my_number = input("Pease enter a number: ")
+my_number
+type(my_number)
+
+my_number = int(my_number)
+my_number
+type(my_number)
+```
+
+The print function has some functionalities and format options. For example, you
+can give it many parameters, including variables, separated by commas and it will
+print them all nicely.
+
+```python
+print ("The DNA sequence's GC content is", GC_content, "%")
+```
+
+You can also format the output of a specific variable. For instance, if a `float`
+has too many decimal points and you only want a certain number:
+
+```python
+print("The DNA sequence's GC content is %1.2f %%" % GC_content)
+```
+In the code above the first "%" creates a place holder, then the number before
+the dot tells how many digits, the number after the dot tell how many decimal
+points (both of these refer to the actual value of the number, i.e., "2" means
+"I want two decimal points"!), and the "f" indicates the type of the format,
+in this case a `float`. Then after the closing quotes comes a "%" indicating that the variable to be formatted is coming, followed by the actual variable. The two "%%" are needed to scape and print the actual "%" character.
+
+Other formatting characters are:
+
+`%d` for integers
+`%3d` for integers with certain amount of numbers
+`%s` for strings
+`%e` for scientific/exponential notation
+
+```python
+print("%d" % 145.645467) # drops the decimals and rounds down.
+
+print("%3d" % 43) # Add a blank space to the left because I told it 3 numbers
+print("%s" % dna)
+print("%e" % 10.6)
+
+```
+
+
+## Quiz
+
+```python
+dna = "gcatggcatcgcagcatgcgcatacgatcagaatgcgacagtcgcgcatcgatgcgcatacgactac"
+
+o1 = dna.find('atg')
+dna.find('atg',o1+1)
+
+dna.rfind('atg')
+
+
+dna.find('atg',dna.find('atg')+1)
+```
+
+```python
+
+a=1
+
+b=2
+
+c=a+b
+
+a = b
+
+a = c
+
+d=a+c
+
+print(a, b, c, d)
+```
