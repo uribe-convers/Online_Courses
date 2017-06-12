@@ -31,3 +31,58 @@ print (count_adjacent_repeats("hgbbtyffs"))
 
 The code above works because it goes through each index and knows what to compare
 it to.
+
+Now, write a function that shifts the items in a list one position to the left.
+For example, if the character "b" is in position/index 1, it's shifted to index 0.
+Whatever item that was in index 0 is shifted to the last position.
+
+
+My version is below:
+
+```python
+
+L = ["a", "b", "c", "d"]
+
+def shift_left(L):
+    """(list) -> NoneType   # Modifies the list be doesn't return anything
+    Shift each item in L one position to the left and shift the first item
+    to the last position.
+
+    Precondition: len(L) >= 1
+
+    >>> shift_left(L = ["a", "b", "c", "d"])
+    ['b', 'c', 'a']
+
+    """
+    for i in range(1):
+        L.insert(len(L), L[i])
+        L.pop(i)
+
+
+```
+
+Course's Version:
+
+```python
+L = ["a", "b", "c", "d"]
+
+def shift_left(L):
+    """(list) -> NoneType   # Modifies the list be doesn't return anything
+    Shift each item in L one position to the left and shift the first item
+    to the last position.
+
+    Precondition: len(L) >= 1
+
+    >>> shift_left(L = ["a", "b", "c", "d"])
+    ['b', 'c', 'a']
+
+    """
+    first_item = L[0]   # Keeps track of the first item
+    for i in range(1, len(L)):
+        L[i - 1] = L[i] # Assigns the item to the right to the item on the left
+# e.g., if i is 1, then 1-1 = 0 (first index of list) and it gets what's on index 1
+    L[-1] = first_item  # Assigns what used to be the fist item to the last position.
+
+
+
+```
