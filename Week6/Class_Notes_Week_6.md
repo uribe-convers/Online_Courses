@@ -83,6 +83,4 @@ def shift_left(L):
 # e.g., if i is 1, then 1-1 = 0 (first index of list) and it gets what's on index 1
     L[-1] = first_item  # Assigns what used to be the fist item to the last position.
 
-
-
 ```
