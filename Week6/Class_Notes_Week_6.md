@@ -85,6 +85,8 @@ def shift_left(L):
 
 ```
 
+# Parallel Lists and Strings
+
 Now we'll use indices to access the items of corresponding positions in two different
 lists and the items of corresponding positions in two different strings.
 
@@ -146,3 +148,6 @@ def count_matches(s1, s2):
 
 
 ```
+
+
+# Nested Lists
