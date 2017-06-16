@@ -151,3 +151,47 @@ def count_matches(s1, s2):
 
 
 # Nested Lists
+
+A list can contain items of any kind, even other lists! These are called nested lists.  
+
+```python
+
+# One list with three items, each a list with two items
+grades = [["Assignment 1", 80], ["Assignment 2", 90], ["Assignment 3", 70]]
+len(grades)
+
+# Get the first list at index 0
+grades[0]
+# Length of one of the items or nested lists
+len(grades[0])
+
+# Shows length of each nested list
+for i in range(len(grades)):
+    len(grades[i])
+# Prints each nested list
+for item in grades:
+    print (item)
+
+# Indexing the first item and the first item of the nested list
+grades[0][0]
+grades[2][1]
+
+```
+
+```python
+
+def calculate_average(asn_grades):
+    """(list of list of [str, number]) -> float
+
+    Return the average of the grades in asn_grades
+
+    >>>calculate_average([["A1", 80], ["A2", 90]])
+    85.0
+
+    """
+    total = 0.0
+    for item in asn_grades:
+        total = total + item[1]
+    return total / len(asn_grades)
+
+```
