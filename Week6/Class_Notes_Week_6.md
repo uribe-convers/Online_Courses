@@ -198,3 +198,41 @@ def calculate_average(asn_grades):
 
 
 # Nested Loops
+
+The body of a `for` loop can have anything including other `for` loops.
+After the first itineration of the outer, the inner loop is executed and it doesn't stop until it has gone through all its iterations. After it's done, the outer loop
+goes to its second iteration and goes into the inner loop again.
+
+```python
+for i in range(10, 13):
+    for j in range(1, 5):
+        print(i, j)
+
+```
+
+Another example, keep track of a list of list of numbers. Get the average for each
+list.
+
+```python
+grades = [[70, 75, 80], [70, 80, 90, 100], [80, 100]]
+
+def averages(grades):
+    """(list of list of num) -> list of float
+    Return a new list in which each item is the average in the inner list at the
+    corresponding position of grades.
+
+    >>>averages([[70, 75, 80], [70, 80, 90, 100], [80, 100]])
+    [75.0, 85.0, 90.0]
+    """
+
+    final_averages = []
+    for grades_list in grades:
+        # Calculate average of grades_list and append it to final_averages
+        total = 0
+        for mark in grades_list:
+            total = total + mark
+        final_averages.append(total / len(grades_list))
+    return final_averages
+
+averages(grades)
+```
