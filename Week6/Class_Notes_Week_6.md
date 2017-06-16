@@ -102,7 +102,46 @@ def sum_items(list1, list2):
     >>>sum_items([1, 2, 3], [2, 4, 2])
     [3, 6, 5]
     """
+    sum_list = [] # empty list
+    for i in range(len(list1)): # this will generate values from 0 up to but nothing
+    # including the length of the list. This works because len(list) -1 is the
+    # last index of the list!
+    # We could have picked the other list too because they are the same length
+    # given the precondition.
+        sum_list.append(list1[i] + list2[i])
+    return sum_list
 
+```
+
+**Note:** If the lists are not the same langth and violate the precondition of the
+function, the results will be wrong. If list1 is shorter, then the indices generated
+won't cover the length of list2 and the resulting list will be shorter.
+If list2 is shorter, then the additional indices from list1 will be out of range
+and it will result in an error.
+
+
+Let's work with parallel strings now with the following example.
+
+
+```python
+def count_matches(s1, s2):
+    """(str, str) -> int
+
+    Return the number of positions in s1 that contain the same character at the
+    corresponding position of s2.
+
+    Precondition: len(s1) == len(s2)
+
+    >>>count_matches("ate", "ape")
+    2
+    >>>count_matches("head", "hard")
+    2
+    """
+    final_count = 0
+    for i in range(len(s1)):
+        if s1[i] == s2[i]:
+            final_count = final_count + 1
+    return final_count
 
 
 
