@@ -84,3 +84,26 @@ def shift_left(L):
     L[-1] = first_item  # Assigns what used to be the fist item to the last position.
 
 ```
+
+Now we'll use indices to access the items of corresponding positions in two different
+lists and the items of corresponding positions in two different strings.
+
+For example in the lists and code below:
+
+```python
+def sum_items(list1, list2):
+    """(list of numbers, list of numbers) -> list of numbers
+
+    Return new list in which each item is the sum of the items at the
+    corresponding position on list1 and list2.
+
+    Precondition: len(list1) == len(list2)
+
+    >>>sum_items([1, 2, 3], [2, 4, 2])
+    [3, 6, 5]
+    """
+
+
+
+
+```
