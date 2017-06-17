@@ -360,3 +360,52 @@ for line in test_file:
     print(line, end = "")
 
 ```
+
+# Writing Files
+
+Use the same function `open` as above but this time use the `mode("w")`. The writing
+mode acts similarly to `print` except that it doesn't add a newline character.
+
+In this example, we'll use the module `tkinter.filedialog` to ask the user for
+a file and to write it.
+
+```python
+import tkinter.filedialog
+#This will open a window to select the file and returns the path of that file
+tkinter.filedialog.askopenfile()
+
+#Save to variable, it's just the path! However, it's saved as class
+# '_io.TextIOWrapper'. To get only the path, use `from_filename.name`
+from_filename = tkinter.filedialog.askopenfile()
+
+type(from_filename)
+from_filename.name
+
+#To save the file. It will prompt a window where to save the file and what name
+# This is returning the path where the new file will be saved.
+to_filename = tkinter.filedialog.asksaveasfile()
+
+#Only path, no class "'_io.TextIOWrapper'
+to_filename.name
+
+from_file = open(from_filename.name, "r")
+
+from_file
+contents = from_filename.read()
+
+from_file.close()
+
+contents
+type(contents)
+
+# Open the file that we want to write to
+to_file = open(to_filename.name, "w")
+to_file.name
+
+to_file.write("Copy\n") # Returns the characters that have been written, includes \n
+
+to_file.write(contents) # Returns the characters that have been written, includes \n
+
+to_file.close
+
+```
