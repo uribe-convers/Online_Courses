@@ -253,7 +253,48 @@ test_filename = "/Users/SAI/Documents/!Online_Courses/Coursera_Learn_to_Program_
 
 test_file = open(test_filename, "r")
 
-# Reads first line including the symbol for new line
+# Reads the next line including the symbol for new line (if exists)
 test_file.readline()
+
+# If you keep calling it, it keeps reading the next line, including blank lines
+test_file.readline()
+test_file.readline()
+
+```
+
+The method `readline()` reads the next line in a file, including the symbol for
+newline `\n` if it exists. If you keep calling this method, it keep returning the
+next line even if it's a blank line. When it has reached the end of the file, it
+will return an empty string.  
+You can close a file with `.close()` and also use a `while` loop to read all of it.
+
+```python
+test_file.close()
+
+test_file = open(test_filename, "r")
+
+line = test_file.readline()
+
+while line != "": # not equal to empty string (end of file)
+    print(line)
+    line = test_file.readline()
+
+```
+
+The code above print every line but adds empty lines in between each line. This
+is because we have the symbol for newline and `print` also adds a new line!  
+To prevent this behavior, we have to specify to `print` to use an empty string
+instead of a new line.
+
+```python
+test_file.close()
+
+test_file = open(test_filename, "r")
+
+line = test_file.readline()
+
+while line != "": # not equal to empty string (end of file)
+    print(line, end = "")
+    line = test_file.readline()
 
 ```
