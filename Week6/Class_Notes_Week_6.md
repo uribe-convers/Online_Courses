@@ -236,3 +236,24 @@ def averages(grades):
 
 averages(grades)
 ```
+
+
+# Reading Files
+
+Instead of reading information from standard input, most of the times you are going
+to be reading it from files. There are four ways to read in a file into Python.
+
+The forst one is with the built-in function `open`, which takes two arguments:
+1) the **filename**, either just the name if in the same directory or the full path,
+and 2) the **mode** which tells Python to read (`r`), write (`w`), or append (`a`).
+
+```python
+# Creates variable with path to file
+test_filename = "/Users/SAI/Documents/!Online_Courses/Coursera_Learn_to_Program_The_Fundamentals_May_2017/Week6/File_Example.txt"
+
+test_file = open(test_filename, "r")
+
+# Reads first line including the symbol for new line
+test_file.readline()
+
+```
