@@ -268,6 +268,9 @@ next line even if it's a blank line. When it has reached the end of the file, it
 will return an empty string.  
 You can close a file with `.close()` and also use a `while` loop to read all of it.
 
+This method is useful when you want to process **only part of the file.**
+
+
 ```python
 test_file.close()
 
@@ -296,5 +299,64 @@ line = test_file.readline()
 while line != "": # not equal to empty string (end of file)
     print(line, end = "")
     line = test_file.readline()
+
+test_file.close()
+
+```
+
+You can use a `while` loop to read a section you are interested in.
+
+```python
+test_file = open(test_filename, "r")
+
+line = test_file.readline()
+
+while line != "\n": # not equal to newline. Reads first paragraph.
+    print(line, end = "")
+    line = test_file.readline()
+
+```
+
+Use a `for` loop to easily read every line in a file, **one at a time:**
+
+```python
+test_file = open(test_filename, "r")
+
+line = test_file.readline()
+
+for line in test_file:
+    print(line, end = "")
+
+```
+
+If the file is not too big, you can read the whole file with the method `read`,
+which return the entire file as a single **string.**
+
+```python
+test_file = open(test_filename, "r")
+
+print(test_file.read())
+
+text = test_file.read()
+len(text)
+type(text)
+```
+
+The fourth way to read a file is with the method `readlines()`, which returns a
+**list** of all the lines in a file. Because it's a list, you can access items
+using indexing.
+
+```python
+test_file = open(test_filename, "r")
+test_file.readlines()
+
+text = test_file.readlines()
+type(text)
+len(text)
+
+text[2]
+
+for line in test_file:
+    print(line, end = "")
 
 ```
