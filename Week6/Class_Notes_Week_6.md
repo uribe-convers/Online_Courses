@@ -409,3 +409,7 @@ to_file.write(contents) # Returns the characters that have been written, include
 to_file.close
 
 ```
+
+Keep in mind that the `write` method doesn't append newlines automatically! You
+need to specify that you want breaks between the lines we are writing. You do this
+with the symbol `\n`, e.g., `to_file.write("First line of text\n")`
