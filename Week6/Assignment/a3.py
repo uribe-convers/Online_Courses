@@ -22,6 +22,11 @@ def is_valid_word(wordlist, word):
     >>> is_valid_word(['ANT', 'BOX', 'SOB', 'TO'], 'TO')
     True
     """
+    if word in wordlist:
+        print(True)
+    else:
+        print(False)
+
 
 
 def make_str_from_row(board, row_index):
@@ -32,7 +37,18 @@ def make_str_from_row(board, row_index):
 
     >>> make_str_from_row([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 0)
     'ANTT'
+    >>> make_str_from_row([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 1)
+    'XSOB'
+    >>> make_str_from_row([['H', 'O', 'L', 'A'], ['L', 'O', 'C', 'O']], 0)
+    'HOLA'
+    >>> make_str_from_row([['H', 'O', 'L', 'A'], ['L', 'O', 'C', 'O']], 1)
+    'LOCO'
     """
+    row = board[row_index]
+    row_string = ""
+    for i in range(len(row)):   # Creates sequence of numbers equal to the length of board
+        row_string = row_string + row[i]
+    return row_string
 
 
 def make_str_from_column(board, column_index):
@@ -43,7 +59,18 @@ def make_str_from_column(board, column_index):
 
     >>> make_str_from_column([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 1)
     'NS'
+    >>> make_str_from_column([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 3)
+    'TB'
+    >>> make_str_from_column([['H', 'O', 'L', 'A'], ['L', 'O', 'C', 'O']], 1)
+    'OO'
+    >>> make_str_from_column([['H', 'O', 'L', 'A'], ['L', 'O', 'C', 'O']], 2)
+    'LC'
     """
+    column_string = ""
+    for i in range(len(board)): # Creates sequence of numbers equal to the length of board
+        column = board[i][column_index] # Indexes board by list and sublist
+        column_string = column_string + column  # Concatenates the items in sublist
+    return column_string
 
 
 def board_contains_word_in_row(board, word):
@@ -144,4 +171,3 @@ def read_board(board_file):
     Return a board read from open file board_file. The board file will contain
     one row of the board per line. Newlines are not included in the board.
     """
-
