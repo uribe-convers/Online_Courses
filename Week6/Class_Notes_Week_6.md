@@ -115,7 +115,7 @@ def sum_items(list1, list2):
 
 ```
 
-**Note:** If the lists are not the same langth and violate the precondition of the
+**Note:** If the lists are not the same length and violate the precondition of the
 function, the results will be wrong. If list1 is shorter, then the indices generated
 won't cover the length of list2 and the resulting list will be shorter.
 If list2 is shorter, then the additional indices from list1 will be out of range
@@ -476,5 +476,30 @@ a1_histfile = open(a1_histfilename, "r")
 90-99:  **
 100:    *
 """
+
+```
+
+**Didn't finish the video on developing a program***
+
+
+# Quiz
+
+
+```python
+for i in range(0, 50, 3):
+    print(i)
+
+
+def merge(L):
+    merged = []
+    for i in range(0, len(L), 3):
+        merged.append(L[i] + L[i + 1] + L[i + 2])
+    return merged
+
+print(merge([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+
+line = "La casa rosada"
+line.startswith("L")
 
 ```

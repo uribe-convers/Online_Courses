@@ -21,11 +21,13 @@ def is_valid_word(wordlist, word):
 
     >>> is_valid_word(['ANT', 'BOX', 'SOB', 'TO'], 'TO')
     True
+    >>> is_valid_word(['ANT', 'BOX', 'SOB', 'TO'], 'KJB')
+    False
     """
     if word in wordlist:
-        print(True)
+        return True
     else:
-        print(False)
+        return False
 
 
 
@@ -122,13 +124,14 @@ def board_contains_word(board, word):
     >>> board_contains_word([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 'ANT')
     True
     >>> board_contains_word([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 'PANTS')
+    False
     """
     if board_contains_word_in_row(board, word):
         return True
     elif board_contains_word_in_column(board, word):
         return True
     else:
-        print(False)
+        return False
 
 
 def word_score(word):
@@ -144,6 +147,18 @@ def word_score(word):
     >>> word_score('DRUDGERY')
     16
     """
+    score = 0
+    length = len(word)
+    if length < 3:
+        score = 0
+    elif 2 < length < 7:
+        score = length
+    elif 6 < length < 10:
+        score = length * 2
+    elif length >= 10:
+        score = length * 3
+    return score
+
 
 
 def update_score(player_info, word):
@@ -154,6 +169,8 @@ def update_score(player_info, word):
 
     >>> update_score(['Jonathan', 4], 'ANT')
     """
+    player_info[1] = player_info[1] + word_score(word)
+
 
 
 def num_words_on_board(board, words):
@@ -164,17 +181,27 @@ def num_words_on_board(board, words):
     >>> num_words_on_board([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], ['ANT', 'BOX', 'SOB', 'TO'])
     3
     """
+    num_words = 0
+    for i in words:
+        if board_contains_word(board, i):
+            num_words = num_words + 1
+    return num_words
 
 
 def read_words(words_file):
     """ (file open for reading) -> list of str
-
     Return a list of all words (with newlines removed) from open file
     words_file.
-
     Precondition: Each line of the file contains a word in uppercase characters
     from the standard English alphabet.
     """
+
+    words_list = []
+    words = words_file.readlines()
+    for word in words:
+         word = word.rstrip('\n')
+         words_list.append(word)
+    return words_list
 
 
 def read_board(board_file):
@@ -183,3 +210,13 @@ def read_board(board_file):
     Return a board read from open file board_file. The board file will contain
     one row of the board per line. Newlines are not included in the board.
     """
+    board = []
+    board_row = []
+    i = 0
+    for line in board_file:
+        line = line.rstrip('\n')
+        board_row += line
+        board.insert( i, board_row )
+        i = i + 1
+        board_row = []
+    return board
