@@ -375,7 +375,8 @@ import tkinter.filedialog
 tkinter.filedialog.askopenfile()
 
 #Save to variable, it's just the path! However, it's saved as class
-# '_io.TextIOWrapper'. To get only the path, use `from_filename.name`
+# '_io.TextIOWrapper'. To get only the path, use `from_filename.name`.
+# You can also use tkinter.filedialog.askopenfilename()!!
 from_filename = tkinter.filedialog.askopenfile()
 
 type(from_filename)
@@ -413,3 +414,67 @@ to_file.close
 Keep in mind that the `write` method doesn't append newlines automatically! You
 need to specify that you want breaks between the lines we are writing. You do this
 with the symbol `\n`, e.g., `to_file.write("First line of text\n")`
+
+# Developing a Program from Scratch
+
+This lecture doesn't introduce any new concepts, rather shows the steps and
+thought process of writing a program from beginning to end.
+
+In this example, we are working with a list of students and their grades. We want
+to create a distribution of the grades in ranges from 0-9, 10-19, etc., 100. We'll
+make a list with one column with the ranges and one with stars for every grade
+that fits that range.
+
+We'll need the following steps:
+
+1. Read file into a list
+2. Count the grades per range
+3. Write the histogram to a file
+
+Writing the general steps and breaking the problem into smaller tasks makes it
+easier to accomplish the goal. It also takes you away from the programing and
+helps you think of what you need to do.
+
+Run the program often and print lines and variables to check if things are working
+like you think they are. It will save you a lot of time debugging later!
+
+It's good practice to keep the functions and the program in a separate files.
+You'll need to import the functions you create!
+
+```python
+import tkinter.filedialog
+import grade
+
+# Gives user the option of selecting a file
+a1_filename = tkinter.filedialog.askopenfilename()
+
+# Reads the file
+a1_file = open(a1_filename, "r")
+
+# Check if everything is there, delete after you know it is.
+#for line in a1_file:
+#    print(line)
+
+
+a1_histfilename = tkinter.filedialog.askopenfilename()
+
+# Reads the file
+a1_histfile = open(a1_histfilename, "r")
+
+
+# Read the grades into a list
+
+# Count the grades per range
+
+# Write the histogram to the file
+
+"""
+0-9:    *
+10-19:  **
+20-29:  ****
+  :
+90-99:  **
+100:    *
+"""
+
+```

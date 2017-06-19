@@ -330,7 +330,7 @@ that act on mutable types and that modify the data of the object.
 # Range
 
 The build-in function `range` can be very useful because it gives you sequences
-of numbers that that represent the indices of strings or lists.
+of numbers that represent the indices of strings or lists.
 The function `range` goes up to but not included the last number. The "step", or
 difference between any two values in the sequence is 1 by default.
 
