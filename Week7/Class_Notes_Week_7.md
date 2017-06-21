@@ -226,3 +226,5 @@ color_to_fruit["red"] # gives a list of red fruits
 color_to_fruit["red"][-1] # indexing the last item of the list, which is cherry
 
 ```
+
+# Populating a Dictionary
