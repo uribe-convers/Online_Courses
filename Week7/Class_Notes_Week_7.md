@@ -1,5 +1,7 @@
 # Week 7
 
+# Tuples
+
 A list is an mutable sequence, an immutable sequence is called a tuple. Tuples
 use the same index notation than lists. If you slice a tuple you create a tuple.
 
@@ -43,5 +45,34 @@ value tuple, put a comma after the value. Empty tuples don;t require the comma.
 (1, 2)
 (1,)
 ()
+
+```
+
+# Type Dict
+
+Dictionaries store information that we can access quickly. We learned to access
+nested lists with indexing before but using a dictionary is simpler.  
+The notation for a dictionary are braces `{}`. In an dictionary, each key (or item)
+of the dictionary is divided by commas `,`, and values within that key are divided
+by colons `:`. Keys in a dictionary **_must_** be unique! Values may be the same.
+
+```python
+grades = [["A1", 80], ["A2", 70], ["A3", 90] ]
+
+# Using indexing
+
+# Get name of sublist 1
+grades[0][0]
+
+# Get grade of sublist 1
+grades[0][1]
+
+# Using a dictionary
+# Key1 = A1 and it's value is 80
+asn_to_grade = {"A1" : 80, "A2" : 70, "A3" : 90}
+
+# To look up a value in the dictionary, use its key.
+asn_to_grade["A2"]
+
 
 ```
