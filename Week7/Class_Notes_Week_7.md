@@ -152,6 +152,77 @@ d[[1, 2]] = "banana"
 # Using a tuple
 d[(1, 2)] = "banana"
 
+```
 
+# Inverting a Dictionary
+
+You can use a dictionary as an accumulator
+
+
+```python
+
+# indentation is not necessary but it looks nicer
+fruit_to_color = {
+    "banana" : "yellow",
+    "chery" : "red",
+    "orange" : "orange",
+    "pear" : "green",
+    "peach" : "orange",
+    "plum" : "purple",
+    "pomegranate" : "red",
+    "strawberry" : "red"}
+
+#Not sorted by neither key or value
+fruit_to_color
+
+fruit_to_color["banana"]
+
+# Iterate to get both the key and values
+for fruit in fruit_to_color:
+    print(fruit, fruit_to_color[fruit])
+
+```
+
+Now imagine that we want to build a new dictionary that maps colors to fruits,
+which is the inverted dictionary we have. If we do a straight inversion, like the
+first `for` loop below, we are going to loose some entries because the keys are
+identical and they get overwritten! To get around this, we need to map the colors
+to a list of fruits of that color.
+
+```python
+# Invert the dictionary
+
+# This will create a dictionary with identical keys that get overwritten
+color_to_fruit = {}
+
+for f in fruit_to_color:
+    color_to_fruit[fruit_to_color[f]] = f
+# or this option
+    color = fruit_to_color[f]
+    color_to_fruit[color] = fruit
+
+# Doing it with a list
+color_to_fruit = {}
+
+for fruit in fruit_to_color:
+    color = fruit_to_color[fruit]
+    # If color is not already a key in the accumulator, add color : [fruit
+    if not (color in color_to_fruit):
+        color_to_fruit[color] = [fruit]
+    # Otherwise, append fruit to the existing list.
+    else:
+        color_to_fruit[color].append(fruit)
+
+color_to_fruit
+
+# What fruits are orange?
+color_to_fruit["orange"]
+
+# How do we get to the fruit orange?
+color_to_fruit["orange"][1] # First part gives list, then index the list
+
+# How to get to cherry?
+color_to_fruit["red"] # gives a list of red fruits
+color_to_fruit["red"][-1] # indexing the last item of the list, which is cherry
 
 ```
