@@ -206,9 +206,11 @@ color_to_fruit = {}
 
 for fruit in fruit_to_color:
     color = fruit_to_color[fruit]
+    
     # If color is not already a key in the accumulator, add color : [fruit
     if not (color in color_to_fruit):
         color_to_fruit[color] = [fruit]
+    
     # Otherwise, append fruit to the existing list.
     else:
         color_to_fruit[color].append(fruit)
@@ -228,3 +230,145 @@ color_to_fruit["red"][-1] # indexing the last item of the list, which is cherry
 ```
 
 # Populating a Dictionary
+
+We are going to read a file and store it in a dictionary.
+
+
+```python
+def read_grades(gradefile):
+    """(file open for reading) -> dict of {float: list of str}
+
+    Read the grades from a gradefile and return a dictionary where each grades
+    is a key and each value is the list of IDs of students who earned that grade.
+
+    Precondition: gradefile starts with a header that contains no blank lines, 
+    then has a blank line, and then lines containing a student number and a grade.
+
+    """
+    # Skip over the  header
+    line = gradefile.readline()
+    while line != "\n": # while the line is not a new line (the blank line)
+        line = gradefile.readline() # Read the file
+    
+    # Read the grades and accumulate them into a dictionary
+    grade_to_id = {} #Acuumulator
+    
+    line = gradefile.readline()
+    
+    while line != "":   #Keep reading until empty string, which is the end of file
+        
+        student_id = line[:4] # slice the line from beginning up to the 4th
+                              #character, same length as students IDs
+        grade = float(line[4:].strip()) # Take the rest of line from 4th index to
+                                        # end, and strip whitespace before and
+                                        # after. Also make it into a float
+        
+        # For grades that are not yet keys in dictionary
+        if grade not in grade_to_id:
+            grade_to_id[grade] = [student_id] #student_id needs to be a list
+            # Assign student_id because it's the value to the key `grade`
+        else:
+            grade_to_id[grade].append(student_id) #Append if already there
+            
+        line = gradefile.readline()
+        
+    return grade_to_id
+    
+
+gradefile = open("/Users/SAI/Documents/!Online_Courses/Coursera_Learn_to_Program_The_Fundamentals_May_2017/Week7/grades_example.txt")
+
+
+read_grades(gradesfile)
+
+```
+
+# Quiz
+
+```python
+d = {'a': [1, 3], 'b': [5, 7, 9], 'c': [11]}
+len(d)
+len(d["b"])
+len(d["a"] + len(d["c"]))
+
+
+{1: 10, 1: 20, 1: 30}
+
+```
+
+# Final exam
+
+```python
+
+a = 7
+b = a + 3
+a = 9
+b
+
+
+first = 'pwn'
+second = 3
+third = 'd'
+
+first+str(second)+third
+
+
+def same_length(L1, L2):
+    '''(list, list) -> bool
+
+    Return True if and only if L1 and L2 contain the same number of elements.
+    '''
+    return len(L1) == len(L2)
+
+    #if len(L1) == len(L2):
+    #   return True
+    #else:
+    #   return False
+    
+d = {0: 10, 1: 20, 2: 30}
+d = {1: 10, 2: 20, 3: 30}
+
+
+def double_last_value(L):
+    '''(list of int) -> NoneType
+
+    Double the value at L[-1]. For example, if L[-1] is 3,
+    replace it with 6.
+
+    Precondition: len(L) >= 1.
+    '''
+    L1 = [1, 3, 5]
+    double_last_value(L1)
+    print(L1[-1])
+    
+8 % 6
+
+def get_negative_nonnegative_lists(L):
+    
+    nonneg = []
+    neg = []
+    for row in range(len(L)):
+        for col in range(len(L)):
+            if L[row][col] > 0:
+                nonneg.append(L[row][col])
+            else:
+                neg.append(L[row][col])
+    
+    return (neg, nonneg)
+
+    '''(list of list of int) -> tuple of (list of int, list of int)
+
+    Return a tuple where the first item is a list of the negative ints in the
+    inner lists of L and the second item is a list of the non-negative ints
+    in those inner lists.
+
+    Precondition: the number of rows in L is the same as the number of
+    columns.
+
+    >>> get_negative_nonnegative_lists([[-1,  3,  5], [2,  -4,  5], [4,  0,  8]])
+    ([-1, -4], [3, 5, 2, 5, 4, 0, 8])
+    '''
+
+
+
+
+```

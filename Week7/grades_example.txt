@@ -1,0 +1,13 @@
+# This is the header of the file
+# Columns
+# id grades
+
+1111	45
+2222	34
+3333	86
+4444	45
+5555	70
+6666	70
+7777	76
+8888	100
+9999	56
