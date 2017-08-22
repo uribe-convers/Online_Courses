@@ -75,3 +75,69 @@ print(gene_expression)
 ```
 
 List are also objects and, thus, have their own methods that allow you to do things.
+
+A useful method is `extend`, which works to add new elements. You can add many elements
+that are in the form of a list.  
+The method `count`,
+counts how many times an element appears in a list. The `reverse` method, reverses their
+elements in the list. As always, you can check the help typing `help(list)`
+
+```python
+print(gene_expression)
+# adding two elements that are in a list
+gene_expression.extend([777, 234])
+print(gene_expression)
+
+print(gene_expression.count("gene"), gene_expression.count(222))
+
+gene_expression.reverse()
+gene_expression
+help(list)
+```
+
+The methods `append` and `pop` allow us to easily treat lists as stacks, where the
+last element added is the first element retrieved (last-in, first out). These two
+methods only work with one element at a time. If you `append` a list, that list
+will become an element of the list.
+
+```python
+stack = ["a", "b", "c", "d"]
+stack
+
+# appending a list
+stack.extend(["hu", "yu"])
+stack
+
+# this will add one element at the top of the stack, i.e., after "d"
+stack.append("e")
+stack
+
+# this removes the last element that was added to the list
+elem = stack.pop()
+elem
+```
+
+One of the most common methods with list is sorting and there are two ways to do it.
+The first one is to use the built-in function `sorted`, which will sort but it **won't**
+change the variable. The other way is to use the method `sort`, which **will** 
+modify the list. The method `sort` is usually more efficient, unless you need to 
+keep the original list and the way the elements were entered.
+
+```python
+# using sorted
+my_list = [3, 54, 12, 2, 34, 5]
+sorted(my_list)
+my_list
+
+# using sort
+my_list.sort()
+my_list
+```
+Finally, the elements of the list don't have to be numbers. Python will apply an order based on the alphabet, with the uppercase letters placed first than the lowercase ones.
+
+```python
+my_list = ["a", "g", "c", "T", "A"]
+sorted(my_list)
+my_list.sort()
+my_list
+```
