@@ -34,10 +34,10 @@ GCTACTAGCATGCA
 
 ## String operators
 
-Concatenate = +
-Replicate = *
-Present in string = in
-*Not* present in string = not in
+Concatenate: +  
+Replicate: *  
+Present in string: in  
+*Not* present in string: not in  
 
 ```python
 "atg" + "gatcg"
@@ -120,7 +120,7 @@ To be more efficient and be able to use other code we've written, save the code
 in a file. Then you can call it by typing `python ProgramName.py`, or if you add
 the path of python at the beginning of your code with `#!/usr/bin/python`, you
 can just type `./ProgramName.py`. Finally, you can call the program from another
-program by imporating it as a module with: `import filename` without the extension.
+program by importing it as a module with: `import filename` without the extension.
 The file needs to be in the same directory.
 
 
