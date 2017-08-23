@@ -188,4 +188,57 @@ pair of values. The value you use to look up values with the `key` and a `value`
 is what is associated with that `key`, sort of a word (key) and its meaning (value)
 in a traditional dictionary.  
 The key can be any immutable types, like `str` and `numbers`, and the values can
-be any type.
+be any type.  
+To create a dictionary, we give it a name and wrap everything in curly brackets. 
+Then, each key (a string or number) will be associated with a value by separating them 
+with a colon `:`. Every key-value pair is separated by commas.  
+To access the values in a dictionary, you use the `key` within square brackets to
+obtain its value. If you try to call a key that doesn't exist in a dictionary, 
+you'll get an error. To check if a key is present in a dictionary: `"key" in dictionary_name`
+
+
+```python
+# create a dictionary
+transcriptome_motif = {"gene1" : "aaagtt", "gene2" : "cgcatcga", "gene3" :  "actcatc"}
+
+# retrieving value from akey
+transcriptome_motif["gene2"]
+
+# using it in a sentence
+print("Studying this transcriptome, I discovered that the sequences for one gene was %s" % transcriptome_motif["gene2"])
+
+# check for key in dictionary
+"gene4" in transcriptome_motif
+"gene3" in transcriptome_motif
+```
+
+To update a dictionary you need a new key and value. Do this by calling the dictionary
+and the new key in square brackets and assign a new value. Existing entries can
+also be modified by assigning anew value to an existing key. A key can be deleted
+from the dictionary suing `del`. You can add multiple key at once by using the method
+`update`, as in `dictionary_name.update`. Keys can be already in the dictionary and
+Python will update those keys.  
+To know how long the dictionary is, use the function `len`.  
+To get all the key in a dictionary, use the method `.keys`. Get it as a list by
+wrapping everything within the list function: `list(dictionary_name.keys())`
+
+```python
+#adding a new key and value to dictionary
+transcriptome_motif["gene4"] = "gcgctagc"
+
+# modifying a value
+transcriptome_motif["gene4"] = "aaaaaaaa"
+
+# deleting a key
+del transcriptome_motif["gene4"]
+
+# adding multiple keys
+transcriptome_motif.update({"gene5" : "ggggggg", "gene6" : "tttttttt", "gene3" : "cccccc"})
+transcriptome_motif
+
+# size of a dictionary
+len(transcriptome_motif)
+
+# getting all keys in dictionary as a list
+list(transcriptome_motif.keys())
+```
