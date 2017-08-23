@@ -220,7 +220,8 @@ from the dictionary suing `del`. You can add multiple key at once by using the m
 Python will update those keys.  
 To know how long the dictionary is, use the function `len`.  
 To get all the key in a dictionary, use the method `.keys`. Get it as a list by
-wrapping everything within the list function: `list(dictionary_name.keys())`
+wrapping everything within the list function: `list(dictionary_name.keys())`. Similarly, 
+use the method `.values` to get all values. The values can be `sorted` too.
 
 ```python
 #adding a new key and value to dictionary
@@ -241,4 +242,9 @@ len(transcriptome_motif)
 
 # getting all keys in dictionary as a list
 list(transcriptome_motif.keys())
+
+# getting all values in dictionary as a list
+list(transcriptome_motif.values())
+# sorted
+(list(transcriptome_motif.values()))
 ```
