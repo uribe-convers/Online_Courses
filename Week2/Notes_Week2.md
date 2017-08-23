@@ -1,4 +1,4 @@
-# Data Structures
+# Data Structures: part 1
 
 ## List
 
@@ -141,3 +141,51 @@ sorted(my_list)
 my_list.sort()
 my_list
 ```
+
+# Data Structures: part 2
+
+## Tuples
+
+Tuples work just like list with the exception that their elements are immutable.
+A tuple is created by entering its values separated by commas and _either_ surrounded 
+or not by parenthesis. You can use the same methods and functions we use on lists 
+on tuples as long as they don't modify the tuple.
+
+```python
+t = 1,2,3
+t
+```
+## Sets
+
+A `set` is an **unordered** collection with no duplicated elements. Because they
+are unordered, they do not have an index. Sets are constructed with curly brackets
+and commas. If there is a duplicated element in the set, it will be removed.
+If you have two or more sets, you can look for the `union` (combinations) 
+of both sets using a pipe (`|`), or look at the intersections (shared) with the 
+and sign (`&`). Finally, you can see which elements are in the first set and not
+the other one (the difference) with the minus simbol (`-`).
+
+```python
+genetic_words = {"promoter", "codon", "nucleotide", "enzyme", "promoter", "DNA"}
+genetic_words
+
+genomic_words = {"DNA", "histone", "locus", "nucleotide"}
+genomic_words
+
+# union
+genetic_words | genomic_words
+
+# intersection
+genetic_words & genomic_words
+
+# difference
+genetic_words - genomic_words
+```
+## Dictionaries
+
+Data structure where you store data that you want to look up later. You store a 
+pair of values. The value you use to look up values with the `key` and a `value`
+is what is associated with that `key`, sort of a word (key) and its meaning (value)
+in a traditional dictionary.  
+The key can be any immutable types, like `str` and `numbers`, and the values can
+be any type.
