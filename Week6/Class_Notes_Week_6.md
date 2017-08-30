@@ -243,7 +243,7 @@ averages(grades)
 Instead of reading information from standard input, most of the times you are going
 to be reading it from files. There are four ways to read in a file into Python.
 
-The forst one is with the built-in function `open`, which takes two arguments:
+The first one is with the built-in function `open`, which takes two arguments:
 1) the **filename**, either just the name if in the same directory or the full path,
 and 2) the **mode** which tells Python to read (`r`), write (`w`), or append (`a`).
 
