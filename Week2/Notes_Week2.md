@@ -248,3 +248,24 @@ list(transcriptome_motif.values())
 # sorted
 (list(transcriptome_motif.values()))
 ```
+
+## Ifs and Loops: part 1
+
+The basic idea is that some code is executed _if_ a condition is met and other code 
+is executed when the condition _is not_ met.
+
+```python
+if condition_is_true:
+    some code
+else:    
+    some other code
+```
+
+```python
+dna = input("Enter DNA sequence: ")
+
+if "n" in dna:
+    nbases = dna.count("n")
+    print("There are %d unidentified bases" %nbases)
+
+```
