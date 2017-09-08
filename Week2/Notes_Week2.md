@@ -266,6 +266,88 @@ dna = input("Enter DNA sequence: ")
 
 if "n" in dna:
     nbases = dna.count("n")
-    print("There are %d unidentified bases" %nbases)
+    print("There are %d undefined bases" %nbases)
+
+```
+
+The conditions in the `if` statement are `Boolean expression`, meaning they can
+be `True` or `False`. This expression are formed by comparison, identity, or membership.
+
+### Comparison Operators
+
+* Equal `==`
+* Not equal `!=`
+* Less than `<`
+* Greater than `>`
+* Less or equal than `<=`
+* Greater or equal than `>=`
+
+### Membership Operators
+
+* `in` -> It returns `True` if something (variable, string, motif) is found in 
+something else.
+* `not in` -> The opposite of `in`
+
+### Identity Operators
+
+* `is` -> It returns `True` if both variables on wither side of the operator point to
+ to the same object. This is different than `==`
+* `is not` The opposite of `is`
+
+```python
+alphabet=["a", "c", "g", "t"]
+newalphabet = alphabet[:] # makes a copy
+newalphabet == alphabet # equal? True
+
+newalphabet is alphabet # is? False!
+
+# This is because newalphabet is a completely different object with a different 
+# location in the memory.
+```
+
+When the `if` condition is not met, then the alternative code can be executed. 
+We use the operator `else` and the alternative code.
+
+```python
+dna = input("Enter DNA sequence: ")
+
+if "n" in dna:
+    nbases = dna.count("n")
+    print("There are %d undefined bases" %nbases)
+else:
+    print("DNA sequence has no undefined bases")
+
+```
+
+You can also test multiple alternative conditions in a single `if` statement. Do 
+this with the `elif` statement. After all the alternative conditions have been 
+tested, you can end the `if` statement with `else`.
+
+```python
+dna = input("Enter DNA sequence: ")
+
+if "n" in dna:
+    print("There are undefined bases")
+elif "N" in dna: # in case the user enters uppercase letters
+    print("There are undefined bases")
+else:
+    print("DNA sequence has no undefined bases")
+
+```
+
+### Logical Operators
+These operators can combine statements.
+* `and` -> Returns `True` if both conditions are true
+* `or` -> Returns `True` if at least one condition is true
+* `not` -> Returns `True` if the condition is false
+
+```python
+dna = input("Enter DNA sequence: ")
+
+if "n" in dna or "N" in dna:
+    nbases = dna.count("n") + dna.count("N")
+    print("There are %d undefined bases" %nbases)
+else:
+    print("DNA sequence has no undefined bases")
 
 ```
