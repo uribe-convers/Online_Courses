@@ -251,6 +251,8 @@ list(transcriptome_motif.values())
 
 ## Ifs and Loops: part 1
 
+### If Statements
+
 The basic idea is that some code is executed _if_ a condition is met and other code 
 is executed when the condition _is not_ met.
 
@@ -349,5 +351,122 @@ if "n" in dna or "N" in dna:
     print("There are %d undefined bases" %nbases)
 else:
     print("DNA sequence has no undefined bases")
+
+```
+
+## Ifs and Loops: part 2
+
+### Loops
+
+There are two kinds of loops, the `while` and `for` loops.
+
+#### While Loops
+
+Only execute the condition `while` it's true. Follows indentation similar to `if` 
+statements.
+
+#### For Loops
+
+It iterates over the items in the order they appear. You can also iterate over a 
+range of numbers, e.g., 1 through 5. You can do this easily with the function `range`
+
+```python
+for i in range(4):
+    print(i)
+# given a start, an end, and how often. Doesn't include the end!
+for i in range(1, 10, 2):
+    print(i)
+    
+dna = "acgatgcKactcagcBatacgUacag"
+
+for i in range(len(dna)):
+    if dna[i] not in "acgt":
+        print("This is not a valid DNA sequence")
+        print("The character %s in position %d, is not a valid DNA character" %(dna[i], i))
+
+```
+#### Break
+
+You can stop a `for` loops if the condition is not met using the `break` statements.
+This will stop as soon as the condition is not met _even_ if there are more.
+
+```python
+dna = "acgatgcKactcagcBatacgUacag"
+
+for i in range(len(dna)):
+    if dna[i] not in "acgt":
+        print("This is not a valid DNA sequence")
+        break
+
+```
+
+#### Continue
+
+This statement causes the program to continue with the next iteration skipping the 
+rest of the code in the loop. In the example below, we will read an incorrect sequence 
+and delete the invalid DNA characters.
+
+```python
+dna = "acgatgcKactcagcBatacgUacag"
+correct_dna = ""
+
+for i in range(len(dna)):
+    if dna[i] not in "acgt":
+        continue
+    correct_dna = correct_dna + dna[i]
+
+print("Incorrect DNA sequence:\n%s" %dna)
+print("Correct DNA sequence\n%s" %correct_dna)
+
+```
+
+If your code is complicated and is testing multiple nested `if` statements, using 
+`continue` might improve the readability of your code.
+
+```python
+# This can be very messy!
+for i in range(n):
+    if condition1:
+        function1(i)
+        if condition2:
+            function2(i)
+            if condition3:
+                function3(i)
+                ....
+
+# This is better
+for i in range(n):
+    if not condition1:
+        continue
+    function1(i)
+    if not condition2:
+        continue
+    function2(i)
+    if not condition3:
+        continue
+    function3(i)
+```
+
+#### Else Clause
+
+Ususally, `else` clauses are part of `if` statements but python allows them in 
+`for` and `while` loops.
+The `else` is executed when the iterations are over in a `for` loop and when the 
+condition is not true in a `while` loop. The `else` is **not** executed is the 
+loop is terminated with a `break` statement. So if you are not using a `break`
+statement, there is no need to use an `else`.
+
+#### Pass Statement
+
+This is a placeholder and does nothing. It is used when a statement is required
+syntactically but you don't want anything to be executed. This can be useful when 
+you are not sure of the a certain block of code but you need for the rest to 
+execute.
+
+```python
+if motif not in dna:
+    pass
+else:
+    some_function(motif, dna)
 
 ```
