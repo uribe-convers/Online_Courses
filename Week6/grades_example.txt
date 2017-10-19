@@ -1,0 +1,11 @@
+# This is the header of the file
+
+1	80
+2	34
+3	86
+4	45
+5	89
+6	70
+7	76
+8	100
+9	56

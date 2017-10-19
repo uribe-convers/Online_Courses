@@ -1,0 +1,11 @@
+This is a text file
+that I created to test how
+to read files into Python.
+
+It needs to be in the same
+directory you are in or
+you have to give the full path to it.
+
+
+There are even some blank lines
+in the file!
