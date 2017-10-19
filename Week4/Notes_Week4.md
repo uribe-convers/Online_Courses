@@ -260,3 +260,43 @@ subprocess.call(["tophat", "genome_index", "PE_reads_1.fq.gz", "PE_reads_2.fq.gz
 ```
 
 # BioPython
+
+Contains many tools for bioinformatics. It provides many modules and scripts to 
+deal with many genomic data and bioinformatic problems.
+
+Here is an example you can easily solve with Biopython, find out the origin of
+and unknown DNA sequence. The default output is in XML format, so we are going 
+to import the `NCBIXML` module too.
+
+```python
+from Bio.Blast import NCBIWWW
+fasta_string = open("seq.fasta").read()
+result_handle = NCBIWWW.qblast("blastn", "nt", fasta_string)
+
+help(NCBIWWW.qblast)
+
+from Bio.Blast import NCBIXML
+blast_record = NCBIXML.read(result_handle)
+
+# Some of the results from a blastn search
+
+len(blast_record.alignments)
+
+# Sort those alignments based on the "E" value, the smaller the better because
+# there is a smaller chance that the result is based on chance.
+# Do this by iterating over all alignments in a `for` loop
+
+E_VALUE_THRESHOLD = 0.01
+
+for alignemnt in blast_record.alignments:
+    for hps in alignemnt.hsps:
+        if hsp.expect < E_VALUE_THRESHOLD:
+            print("**** Alignment ****")
+            print("Sequence:", alignemnt.title)
+            print("Length:"), alignemnt.length)
+            print("e value", hps.expect)
+            print(hsp.query)
+            print(hsp.match)
+            print(hsp.sbjct)
+
+```
