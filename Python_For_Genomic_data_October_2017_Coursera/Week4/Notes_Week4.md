@@ -259,7 +259,7 @@ subprocess.call(["tophat", "genome_index", "PE_reads_1.fq.gz", "PE_reads_2.fq.gz
 
 ```
 
-# BioPython
+# Biopython
 
 Contains many tools for bioinformatics. It provides many modules and scripts to 
 deal with many genomic data and bioinformatic problems.
