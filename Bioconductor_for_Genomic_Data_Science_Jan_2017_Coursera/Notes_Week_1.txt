@@ -1,0 +1,194 @@
+Bioconductor for Genomic Data Science Coursera - Jan 2017
+
+Bioconductor
+	Collection of software packages into a single archive (repository)
+	Reproducible and open
+	Increases productivity and flexibility (can be applied to many types of data)
+	
+
+	biocLite()
+		checks that everything is updated
+	
+	Never use anything else than biocLite to install packages from bioconductor, it will start to mix and match different versions of R and it will end in problems.
+
+Bioconductor website
+	Under "Use" you can find information about packages
+	Common workflows: Information on how to use multiple packages for a specific purpose.
+	Courses: updated information and tutorials
+	
+	
+Finding help online
+	At the bioconductor website under "Learn" -> support site
+		Under "Use" -> support site for key points on how to ask a question on the support site
+	Stackoverflow.com for support
+	rdocumentation.org -> searches all documentation across CRAN and Bioconductor
+	rseek.org -> similar to rdocumentation.org
+	
+	
+R Base Types
+	
+	
+	Atomic vectors
+		Every single vector is of the same type
+		Vectors can be given names and be indexed in one dimension either by position or name
+		Names do not need to be unique in vectors
+			When subsetting, you only get the first name and it can be confusing
+			Check with "unique" or "duplicated", or with "anyDuplicated(names(x))", which returns either a zero or the index of the duplicated name
+	
+	
+	Integers vs Numerics
+		To get a single integers value: x <- 1L
+		There is a limit of how big integers can be represented in R
+			This limit (~2.1 billions) affect how big the number can be or how long the vector can be. This number is a bit smaller tha the human genome, so you might hit the limit sometimes.
+			To get around this, there is something called "Long Vectors".
+			
+			If you run into this limit, transform the integer into numeric: as.numeric(x)
+		
+	
+	Matrices
+		Two dimensions 
+		Columns and Rows
+		Names do not to be unique
+			This is a common source of errors!
+		Can be subset with two dimensional subsetting where the first number is the ROW.
+		If subsetting a single row, you get it as a vector. To get a matrix with one row and n number of columns, use the "drop=FLASE" argument while subsetting.
+		Matrices are filled by column first unless specified
+	
+		
+	Lists
+		Objects do not need to be of the same kind
+		Subsetting a list works similarly as with vectors
+		x[1] returns the first element of the list or x[1:2] returns the first two elements
+		However, it returns a list with one element. If you want the element itself you need to use double square brakets. This will give you the vector and not a list.
+		With lists you can subset by names either using x["name"] or x$name
+		Important: in lists you can have partial matching in names (e.g., x$let for a name called latters) and this can be confusing and dangerous if two elements share a similar name (e.g., letteres and letteres2) in which case you get NULL.
+		To get a list where every number is a list, you use the as.list function
+		
+		If the list has many elements of the same type and you want to use the same function over all the elements, you use lapply.
+		lapply returns a list but sometimes you want a vector with the results. For this you use sapply (simplified apply), which returns a number or a vector of the same length.
+		
+	
+	Data Frames
+		Observations of different types, similar to a list
+		Data Frames are column oriented, so when indexing by name you can only get columns
+		Columns are variable and rows are observations/different samples
+		Data Frames must have names and the row names must be unique (they can be numbers)
+		
+		A data rame is really a list where each component of the lists is of the same length.
+		You can use lapply and sapply just like with lists. sapply(x, class) will return the class type of each column
+		
+	
+	Conversion 
+		as.something functions 
+		However, in Bioconductor we deal with very complicated objects and the as.something function might not work. 
+		For this, there is a function called "as" within the methods packes
+		library(methods)
+		as(x, "matrix")
+		
+
+GRanges
+	Data type to store genomic intervals in R
+	Fast and efficient
+	Many entities in Genomics can be defined as intervals or sets of intervals (or integers)
+	Most all the functionality for GRanges are included in the packages GenomicRanges and IRanges
+	There is overlap between RGRanges and bedtools
+
+
+IRanges Package
+	An IRange is vector that contains integer intervals
+	You need 2 out of 4 arguments: start, stop, width, ...
+	It can have names just like vectors
+	They can be subsetted  with a single index in single square brakets, either position or name
+	To know how many intervals overlap, use the "countOverlaps" function which is efficient and fast
+	
+	
+Genomic Ranges Package
+	GRanges class
+	It's very similar to an IRange with additional information on chromosome and strand
+	Strands in GRanges can have three values: +, -, *; i.e., forward, reverse, and either unknown or present on both strands
+	Entities have a direction in GRanges and so flanking regions are either transcribed to the right or to the left. This includes promoters with a default value of 2000bp upstream and 200bp downstream
+	seqinfo() gives information about the sequence
+	seqlevel() gives names
+	gaps() gives the ranges on a sequence
+	sort() sorts not by name or chromosome but based on the order of the levels in the sequence.
+	genome() assigns information about the genome the chromosomes belong to. This is useful when you are working with a pool of genomes. It also prevents you from finding overlaps among all your sequences, because they are incompatible.
+	
+	
+GRanges Usage (**The Most Important Package)
+	New class: DataFrame (note the capital D and F, diffrent from dataframe)
+	This class allows many different types of objects to be stored as long as they have a length attribute. This class keeps objects together, i.e., IRanges
+	values() adds columns of metadata to a GRange. This columns in DatFrames can be indexed by the "$" operator. You can aslo add a new column that way: x$score2 = x$score / 3
+	
+	*The main workhorse of IRanges and GRanges is the findOverlaps function
+	
+	It keeps track of strand and chromosome
+	You can also ignore the strand the interval is with the ignore.strand = TRUE argument
+	the subsetByOverlaps() function returns only what is shared among GRanges
+	
+	You can transfrom data.rames to GRanges with the makeGRangesFromDataFrame function. To keep metadata columns change the keep.extra.column argument to TRUE
+	
+
+GenomicRanges seqinfo()
+
+	Information about length and name of chromosomes
+	To restrict the analysis to a specific chromosome, use the seqlevels() function with the force argument on. Example: seqlevels(x, force = TRUE) = "chr1" will drop everything except chr1
+	This can also be done with either keepSeqlevels(x, "chr1") or dropSeqlevels(x, "chr1")
+	Sometimes, some genomes have small and weirdly named chromosomes that are usually small contigs. To drop these small contigs and keep the real chromosomes, you can use the keepStandardChromosomes() function.
+	Different data might have different conventions for naming the chromosomes (chr1, chr01, 1). To standardize the names across datasets, use mapSeqlevels() on a genome to map the names into a vector (NewStyle) and then renameSeqlevels() to change the names.
+	
+	
+AnnotationHub
+	source("https://bioconductor.org/biocLite.R")
+	biocLite("AnnotationHub")
+	
+	It is an interface to many online resources that you can download and create your own local database
+	It helps to analyze many online datasets quickly
+	You first create your database with: ah <- AnnotationHub(), which interfaces to 35,000 databases!
+	To look at the first record: ah[1], if that's the one you want you can retrieve it with double brackets: ah[[1]] and it will go online and get it.
+	 There are around 35,000 databases and you need to narrow down your interest. you can do with the subset() function using some properties or the data. e.g., ah <- subset(ah, species == "Homo sapiens")
+	 To search through the database, use query(ah, "keyword")
+	 For two terms: query(ah, c("keyword1", "keyword2"))
+	 To get more information about the data, one can use ah2 <- display(ah), which will open a table with information about the different datasets and one can select them and send them back to the console in a variable.
+	 
+	
+Use Cases
+	Always download data from the same genome version! If you mix versions you might end up with weird results!
+		 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
