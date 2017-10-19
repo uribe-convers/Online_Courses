@@ -1,0 +1,190 @@
+# FISH552
+
+# Name: Emilio Vilanova
+# Homework 1
+
+#==Question 1: Create vectors of data with the following characteristics, using rep() and seq() when possible.
+# Q1a: 100 regularly spaced values from -1 to 1. Call this vector x.
+
+# R code
+> x<-seq(from=-1, to=1,length.out=100)
+> x
+  [1] -1.00000000 -0.97979798 -0.95959596
+  [4] -0.93939394 -0.91919192 -0.89898990
+  [7] -0.87878788 -0.85858586 -0.83838384
+ [10] -0.81818182 -0.79797980 -0.77777778
+ [13] -0.75757576 -0.73737374 -0.71717172
+ [16] -0.69696970 -0.67676768 -0.65656566
+ [19] -0.63636364 -0.61616162 -0.59595960
+ [22] -0.57575758 -0.55555556 -0.53535354
+ [25] -0.51515152 -0.49494949 -0.47474747
+ [28] -0.45454545 -0.43434343 -0.41414141
+ [31] -0.39393939 -0.37373737 -0.35353535
+ [34] -0.33333333 -0.31313131 -0.29292929
+ [37] -0.27272727 -0.25252525 -0.23232323
+ [40] -0.21212121 -0.19191919 -0.17171717
+ [43] -0.15151515 -0.13131313 -0.11111111
+ [46] -0.09090909 -0.07070707 -0.05050505
+ [49] -0.03030303 -0.01010101  0.01010101
+ [52]  0.03030303  0.05050505  0.07070707
+ [55]  0.09090909  0.11111111  0.13131313
+ [58]  0.15151515  0.17171717  0.19191919
+ [61]  0.21212121  0.23232323  0.25252525
+ [64]  0.27272727  0.29292929  0.31313131
+ [67]  0.33333333  0.35353535  0.37373737
+ [70]  0.39393939  0.41414141  0.43434343
+ [73]  0.45454545  0.47474747  0.49494949
+ [76]  0.51515152  0.53535354  0.55555556
+ [79]  0.57575758  0.59595960  0.61616162
+ [82]  0.63636364  0.65656566  0.67676768
+ [85]  0.69696970  0.71717172  0.73737374
+ [88]  0.75757576  0.77777778  0.79797980
+ [91]  0.81818182  0.83838384  0.85858586
+ [94]  0.87878788  0.89898990  0.91919192
+ [97]  0.93939394  0.95959596  0.97979798
+[100]  1.00000000
+
+# Q1b== The function y = exp(x/2), evaluated for all the values in vector x created in (a). Call this vector y.
+# R code
+> y<-exp(x/2)
+
+#Q1c:How many values in y created in (b) are above 1?
+# R code
+> which(y>1)
+ [1]  51  52  53  54  55  56  57  58  59  60  61  62
+[13]  63  64  65  66  67  68  69  70  71  72  73  74
+[25]  75  76  77  78  79  80  81  82  83  84  85  86
+[37]  87  88  89  90  91  92  93  94  95  96  97  98
+[49]  99 100
+
+#or
+>sum(y>1)
+[1] 50
+
+#Q1d: 5 entries each of “Small”, “Medium”, “Large”, encoded as a factor. Call this vector size.
+# R code
+>size<-c("Small", "Medium", "Large")
+> rep(size,times=5)
+ [1] "Small"  "Medium" "Large"  "Small"  "Medium" "Large" 
+ [7] "Small"  "Medium" "Large"  "Small"  "Medium" "Large" 
+[13] "Small"  "Medium" "Large" 
+> size<-factor()
+> size.fac<-factor()
+> is.factor(size.fac)
+[1] TRUE
+
+#or
+
+>size <- factor(rep(c("small", "medium", "large"), each = 5))
+>size
+ [1] small  small  small  small  small  medium medium medium
+ [9] medium medium large  large  large  large  large 
+Levels: large medium small
+
+#Q1e: Take the results of (d) and append 2 entries of “Unknown”. Call this vector observedSize
+# R code
+> observedSize <- factor(c(as.character(size), rep("unknown", 2)))
+observedSize
+> observedSize
+ [1] small   small   small   small   small   medium  medium 
+ [8] medium  medium  medium  large   large   large   large  
+[15] large   unknown unknown
+Levels: large medium small unknown
+
+#Question2: Reading and working with fishPassage file
+
+#Q2a: Read the data into R as an object named fishPassage
+R code
+>fishPassage <-read.csv("C:/Users/vilanova/Desktop/FISH552_Introduction to R/Homeworks/fishPassage.csv", header=TRUE)
+
+#Q2b: Calculate the maximum and minimum number of wild steelhead to pass Bonneville Dam (BON) and specify in which year each occurred.
+R code
+> minPassage <- min(fishPassage$Wild.Steelhead[fishPassage$Dam == "BON"], na.rm = TRUE)
+> minPassage
+[1] 17375
+
+> maxPassage <- max(fishPassage$Wild.Steelhead[fishPassage$Dam == "BON"], na.rm = TRUE)
+> maxPassage
+[1] 149582
+
+#Q2c: Calculate the total number of fish counted at Bonneville Dam (BON) in 2007.
+R code
+> sum(fishPassage[fishPassage$Year == 2007 & fishPassage$Dam =="BON",3:13])
+[1] 3474405
+
+#Q2d: Create a new data frame called fishPassage1995BON that contains only observations from Bonneville Dam (BON) from 1995 onwards.
+R code
+>fishPassage1995BON <- fishPassage[fishPassage$Year >= 1995 & fishPassage$Dam == "BON",]
+> fishPassage1995BON
+   Year Dam Chinook.Adult Chinook.Jack Coho.Adult Coho.Jack Sockeye Steelhead
+1  2007 BON        274321        83054      91994      4064   24376    320931
+2  2006 BON        493136        32812     101087      7920   37066    333250
+3  2005 BON        570303        29998      83321      5486   72971    314721
+4  2004 BON        845717        60247     115041      4808  123291    311122
+5  2003 BON        917154        75344     125743      8127   39291    361412
+6  2002 BON        870803        54649      88459      6830   49610    481203
+7  2001 BON        867933       103398     259756      6780  114934    633464
+8  2000 BON        401733        90195      85734     11393   93398    275273
+9  1999 BON        306981        36195      40684      4468   17875    206488
+10 1998 BON        248860        32084      46290      3630   13218    185094
+11 1997 BON        360673        26415      24061      3206   47008    258385
+12 1996 BON        272885        23750      15737      3010   30252    205213
+13 1995 BON        189419        50631      10397      1639    8774    202448
+   Wild.Steelhead Pink    Shad Chum Lamprey
+1           80953   27 2575277   95   19313
+2           83890    6 3965254  121   38938
+3           88894   17 4242129  128   26664
+4           97542    1 5355677   77   61780
+5          112347  637 4558550  326  117029
+6          143045    0 3164556   72  100476
+7          149582   -4 2297959   58   27947
+8           76220    0 1244317   38   19002
+9           55064   28 1638281   43   37296
+10          35701   13 1891086    0   37515
+11          33580    2 2171561   15   20891
+12          17375  159 1923143   25      NA
+13             NA   35 1716206   26      NA
+
+#Q2e: Create a matrix with 3 columns from the data fishPassage1995BON that contains counts of Coho adults, Coho jacks and the proportion of Coho jacks to adults. Name this matrix
+cohoPassage.
+R code
+> cohoPassage <- cbind(fishPassage1995BON$Coho.Adult,fishPassage1995BON$Coh.Jack,fishPassage1995BON$Coho.Jack / fishPassage1995BON$Coho.Adult)
+> cohoPassage
+        [,1]       [,2]
+ [1,]  91994 0.04417679
+ [2,] 101087 0.07834835
+ [3,]  83321 0.06584174
+ [4,] 115041 0.04179380
+ [5,] 125743 0.06463183
+ [6,]  88459 0.07721091
+ [7,] 259756 0.02610142
+ [8,]  85734 0.13288777
+ [9,]  40684 0.10982204
+[10,]  46290 0.07841866
+[11,]  24061 0.13324467
+[12,]  15737 0.19126898
+[13,]  10397 0.15764163
+
+#Q2f: Compute the mean of each of the variables in cohoPassage. Be careful with missing values (NA).
+R code
+> colMeans(cohoPassage, na.rm = TRUE)
+[1] 8.371569e+04 9.241451e-02
+
+#Q2g: Round the output in f) to two decimal places. You may need to search the help files.
+R code
+> ?round
+> round(colMeans(cohoPassage, na.rm = TRUE), digits = 2)
+[1] 83715.69     0.09
+
+#Q2h: Display all the observations associated with the largest Chinook adult count from the fishPassage data.
+R code
+> ?which
+> ?which.max
+> fishPassage[which.max(fishPassage$Chinook.Adult),]
+Year Dam Chinook.Adult Chinook.Jack Coho.Adult Coho.Jack Sockeye Steelhead
+5 2003 BON        917154        75344     125743      8127   39291    361412
+  Wild.Steelhead Pink    Shad Chum Lamprey
+5         112347  637 4558550  326  117029
+
+
+
