@@ -1,4 +1,4 @@
-# Functions Part 1
+io# Functions Part 1
 
 General syntax:
 
@@ -157,6 +157,7 @@ def complement(dna):
     Returns the reverse of the dna string
     """
     # Build a dictionary
+    
     basecomplement = {"A" : "T", "C" : "G", "G" : "C", "T" : "A", "N" : "N",
      "a" : "t", "c" : "g", "g" : "c", "t" : "a", "n" : "n"}
     letters = list(dna) # converts the string into a list
