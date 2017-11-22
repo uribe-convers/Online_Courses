@@ -1,3 +1,4 @@
+# Week 4 
 # Communicating with the Outside: Reading and Writing Files
 
 To open a file, we use the built-in function `open(filename, mode)`

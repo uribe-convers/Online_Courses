@@ -1,4 +1,6 @@
-io# Functions Part 1
+# Week 3 
+
+# Functions Part 1
 
 General syntax:
 
